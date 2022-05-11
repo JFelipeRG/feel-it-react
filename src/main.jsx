@@ -7,9 +7,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { UserContextProvider } from './context/UserContext'
 
 import App from './App'
-import Home from '@pages/Home/home'
 import LogIn from '@pages/Login/login'
 
+const Home = React.lazy(() => import('@pages/Home/home'))
 const Post = React.lazy(() => import('@pages/NewPost/post'))
 const Profile = React.lazy(() => import('@pages/Profile/profile'))
 

@@ -12,7 +12,7 @@ function App () {
 
   useEffect(() => {
     navigate(isLogged ? 'home' : 'login')
-  }, [isLogged, navigate])
+  }, [isLogged])
 
   return (
     <>
