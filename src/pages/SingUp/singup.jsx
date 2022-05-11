@@ -1,9 +1,21 @@
-const handleSubmit = e => {
-  e.preventDefault()
-  window.alert('Quieres hacer registro')
-}
+import { useNavigate } from 'react-router-dom'
+import useUser from '@hooks/useUser'
+import { useEffect } from 'react'
 
 export default function Login () {
+  const navigate = useNavigate()
+  const { isLogged } = useUser()
+
+  useEffect(() => {
+    console.log(isLogged)
+    if (isLogged) navigate('/home')
+  }, [isLogged])
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    window.alert('Quieres hacer registro')
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
