@@ -3,17 +3,18 @@ import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import App from './App'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-
-import Home from '@pages/Home/home'
-import Post from '@pages/NewPost/post'
-import Profile from '@pages/Profile/profile'
-
-import LogIn from '@pages/Login/login'
-import LogOut from '@pages/LogOut/logout'
-import SingUp from '@pages/SingUp/singup'
 import { UserContextProvider } from './context/UserContext'
+
+import App from './App'
+import Home from '@pages/Home/home'
+import LogIn from '@pages/Login/login'
+
+const Post = React.lazy(() => import('@pages/NewPost/post'))
+const Profile = React.lazy(() => import('@pages/Profile/profile'))
+
+const LogOut = React.lazy(() => import('@pages/LogOut/logout'))
+const SingUp = React.lazy(() => import('@pages/SingUp/singup'))
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -21,12 +22,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Router>
         <Routes>
           <Route path='logIn' element={<LogIn />} />
-          <Route path='logOut' element={<LogOut />} />
-          <Route path='singUp' element={<SingUp />} />
+          <Route path='logOut' element={<React.Suspense fallback={null}><LogOut /></React.Suspense>} />
+          <Route path='singUp' element={<React.Suspense fallback={null}><SingUp /></React.Suspense>} />
           <Route path='/' element={<App />}>
-            <Route path='home' element={<Home />} />
-            <Route path='profile' element={<Profile />} />
-            <Route path='post' element={<Post />} />
+            <Route path='home' element={<React.Suspense fallback={null}><Home /></React.Suspense>} />
+            <Route path='profile' element={<React.Suspense fallback={null}><Profile /></React.Suspense>} />
+            <Route path='post' element={<React.Suspense fallback={null}><Post /></React.Suspense>} />
           </Route>
         </Routes>
       </Router>
