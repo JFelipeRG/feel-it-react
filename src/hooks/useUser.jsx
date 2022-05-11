@@ -1,8 +1,18 @@
-import { useState } from 'react'
+import { useCallback, useContext } from 'react'
+import Context from '@context/UserContext'
 
 export default function useUser () {
-  const userStorage = window.sessionStorage.getItem('userLog')
-  const [user] = useState(userStorage || null)
+  const { user, setUser } = useContext(Context)
 
-  return { isLogged: Boolean(user) }
+  const login = useCallback((username, passw) => {
+    window.sessionStorage.setItem('user', [username, passw])
+    setUser([username, passw])
+  }, [setUser])
+
+  const logout = useCallback(() => {
+    window.sessionStorage.removeItem('user')
+    setUser(null)
+  }, [setUser])
+
+  return { isLogged: Boolean(user), login, logout }
 }

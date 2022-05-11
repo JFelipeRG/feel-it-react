@@ -8,7 +8,8 @@ export default defineConfig({
     alias: {
       '@pages': path.resolve(__dirname, './src/pages'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
-      '@components': path.resolve(__dirname, './src/components')
+      '@components': path.resolve(__dirname, './src/components'),
+      '@context': path.resolve(__dirname, './src/context')
     }
   },
   plugins: [react()]

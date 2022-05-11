@@ -13,20 +13,23 @@ import Profile from '@pages/Profile/profile'
 import LogIn from '@pages/Login/login'
 import LogOut from '@pages/LogOut/logout'
 import SingUp from '@pages/SingUp/singup'
+import { UserContextProvider } from './context/UserContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path='logIn' element={<LogIn />} />
-        <Route path='logOut' element={<LogOut />} />
-        <Route path='singUp' element={<SingUp />} />
-        <Route path='/' element={<App />}>
-          <Route path='home' element={<Home />} />
-          <Route path='profile' element={<Profile />} />
-          <Route path='post' element={<Post />} />
-        </Route>
-      </Routes>
-    </Router>
+    <UserContextProvider>
+      <Router>
+        <Routes>
+          <Route path='logIn' element={<LogIn />} />
+          <Route path='logOut' element={<LogOut />} />
+          <Route path='singUp' element={<SingUp />} />
+          <Route path='/' element={<App />}>
+            <Route path='home' element={<Home />} />
+            <Route path='profile' element={<Profile />} />
+            <Route path='post' element={<Post />} />
+          </Route>
+        </Routes>
+      </Router>
+    </UserContextProvider>
   </React.StrictMode>
 )
