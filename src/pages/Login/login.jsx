@@ -1,17 +1,15 @@
+import './login.css'
+
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import useNav from '@hooks/useNav'
 import useUser from '@hooks/useUser'
-import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
 
 export default function Login () {
   const [nick, setNick] = useState('')
   const [passw, setPassw] = useState('')
-  const navigate = useNavigate()
-  const { isLogged, login } = useUser()
-
-  useEffect(() => {
-    console.log(isLogged)
-    if (isLogged) navigate('/home')
-  }, [isLogged])
+  const { login } = useUser()
+  useNav()
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -19,7 +17,7 @@ export default function Login () {
   }
 
   return (
-    <div>
+    <div className='form-container'>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='nick'>Nick</label>
