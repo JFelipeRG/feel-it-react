@@ -1,7 +1,14 @@
-import useNav from '@hooks/useNav'
+import { useNavigate } from 'react-router-dom'
+import useUser from '@hooks/useUser'
+import { useEffect } from 'react'
 
 export default function Login () {
-  useNav()
+  const navigate = useNavigate()
+  const { isLogged } = useUser()
+
+  useEffect(() => {
+    if (isLogged) navigate('/home')
+  }, [isLogged])
 
   const handleSubmit = e => {
     e.preventDefault()

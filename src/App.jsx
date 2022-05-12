@@ -1,17 +1,28 @@
 import './App.css'
 
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 import Header from '@components/Header/header'
-import useNav from '@hooks/useNav'
+
+import useUser from '@hooks/useUser'
+import { useEffect } from 'react'
 
 function App () {
-  useNav()
+  const navigate = useNavigate()
+  const { isLogged } = useUser()
+
+  useEffect(() => {
+    navigate(isLogged ? '/home' : '/login')
+  }, [isLogged])
 
   return (
     <>
-      <Header />
-      <Outlet />
+      <div className='app-header'>
+        <Header />
+      </div>
+      <div className='app-body'>
+        <Outlet />
+      </div>
     </>
   )
 }
