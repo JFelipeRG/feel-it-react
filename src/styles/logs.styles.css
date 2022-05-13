@@ -31,8 +31,10 @@
   position: absolute;
   z-index: 1;
   left: 0;
+  top: 5px;
   color: white;
   transition: all 0.4s;
+  pointer-events: none;
 }
 
 .input-form:focus ~ .label-form,
@@ -41,8 +43,9 @@
 }
 
 .input-form {
-  height: 20px;
+  height: 25px;
   border: none;
+  font-size: 1em;
   border-bottom: 1px solid black;
   background-color: transparent;
   outline: none;
@@ -60,4 +63,29 @@
 .button-form:hover {
   background-color: #9b34fc;
   cursor: pointer;
+}
+
+.option-container {
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 20px;
+}
+
+.links-options {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.links {
+  margin: 0 10px;
+}
+
+.error-container {
+  margin: 0;
+  text-align: center;
+}
+
+.error {
+  font-size: 0.85em;
+  color: red;
 }

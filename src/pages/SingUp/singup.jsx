@@ -1,4 +1,6 @@
-import { useNavigate } from 'react-router-dom'
+import '@styles/logs.styles.css'
+
+import { useNavigate, Link } from 'react-router-dom'
 import useUser from '@hooks/useUser'
 import { useEffect } from 'react'
 
@@ -16,22 +18,25 @@ export default function Login () {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='img-profile' />
-          <input id='img-profile' type='file' />
+    <div className='form-container'>
+      <form className='form' onSubmit={handleSubmit}>
+        <h2>Registrar</h2>
+        <div className='input-container'>
+          <input className='input-form' id='img-profile' type='file' />
         </div>
-        <div>
-          <label htmlFor='user'>Nick</label>
-          <input id='nick' type='text' />
+        <div className='input-container'>
+          <input className='input-form' id='nick' type='text' />
+          <label className='label-form' htmlFor='user'>Nick</label>
         </div>
-        <div>
-          <label htmlFor='passw'>Password</label>
-          <input id='passw' type='password' />
+        <div className='input-container'>
+          <input className='input-form' id='passw' type='password' />
+          <label className='label-form' htmlFor='passw'>Password</label>
         </div>
-        <div>
-          <input type='submit' value='Registrarse' />
+        <div className='button-container'>
+          <button className='button-form'>Registrarse</button>
+          <Link to='/login'>
+            <button className='button-form'>Volver</button>
+          </Link>
         </div>
       </form>
     </div>
