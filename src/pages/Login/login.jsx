@@ -24,7 +24,7 @@ export default function Login () {
     if (isLogged) navigate('/home')
   }, [isLogged])
 
-  const handleSubmit = (values, { setFieldError }) => {
+  const handleSubmit = (values) => {
     login({ nick: values.nick, passw: values.passw })
   }
 
