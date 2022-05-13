@@ -8,22 +8,19 @@
 }
 
 .form {
+  padding: 15px;
   border: 1px solid black;
   border-radius: 10px;
   width: 400px;
-  height: 350px;
+  min-height: 350px;
   text-align: center;
-  display: grid;
-  align-items: center;
-  flex-direction: column;
 }
 
 .input-container {
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin: 0 auto;
+  display: block;
+  width: 85%;
+  margin: 20px auto;
   position: relative;
 }
 
@@ -44,6 +41,7 @@
 
 .input-form {
   height: 25px;
+  width: 100%;
   border: none;
   font-size: 1em;
   border-bottom: 1px solid black;
@@ -78,11 +76,6 @@
 
 .links {
   margin: 0 10px;
-}
-
-.error-container {
-  margin: 0;
-  text-align: center;
 }
 
 .error {

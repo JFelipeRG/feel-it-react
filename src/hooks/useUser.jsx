@@ -4,19 +4,19 @@ import { getUser } from '@services/user.services'
 
 export default function useUser () {
   const { user, setUser } = useContext(Context)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState({ state: false, message: '' })
 
   const login = useCallback(({ nick, passw }) => {
     getUser({ nick, passw })
       .then(user => {
-        if (user.length === 0) throw new Error('Usuario no valido')
+        if (user.length === 0) throw new Error()
 
         window.sessionStorage.setItem('user', JSON.stringify(user))
-        setError(false)
+        setError({ state: false, message: '' })
         setUser(user)
       }).catch(err => {
         window.sessionStorage.removeItem('user')
-        setError(true)
+        setError({ state: true, message: 'El usuario o la contraseña no son válidos' })
         console.log(err.message)
       })
   }, [setUser])

@@ -32,6 +32,10 @@ export default function Login () {
           <input className='input-form' id='passw' type='password' />
           <label className='label-form' htmlFor='passw'>Password</label>
         </div>
+        <div className='input-container'>
+          <input className='input-form' id='passw' type='password' />
+          <label className='label-form' htmlFor='passw'>Confirm Password</label>
+        </div>
         <div className='button-container'>
           <button className='button-form'>Registrarse</button>
           <Link to='/login'>
