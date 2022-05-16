@@ -1,9 +1,14 @@
 import axios from 'axios'
-const baseURL = 'http://localhost:3002/api/users'
+const baseURL = 'http://localhost:3002/api/user'
 
-const getUser = async ({ nick, passw }) => {
-  const { data } = await axios.get(`${baseURL}/${nick}/${passw}`)
+const login = async params => {
+  const { data } = await axios.post(`${baseURL}/login`, params)
   return data
 }
 
-export { getUser }
+const register = async params => {
+  const { data } = await axios.post(`${baseURL}/register`, params)
+  return data
+}
+
+export { login, register }

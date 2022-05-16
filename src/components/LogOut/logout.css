@@ -1,0 +1,24 @@
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgb(255 255 255 / 70%);
+  backdrop-filter: blur(0.8px);
+  display: grid;
+  align-items: center;
+}
+
+.option-container {
+  font-size: 1em;
+  background-color: aqua;
+  border-radius: 7px;
+  width: 400px;
+  height: 200px;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}

@@ -13,7 +13,6 @@ const Home = React.lazy(() => import('@pages/Home/home'))
 const Post = React.lazy(() => import('@pages/NewPost/post'))
 const Profile = React.lazy(() => import('@pages/Profile/profile'))
 
-const LogOut = React.lazy(() => import('@pages/LogOut/logout'))
 const SingUp = React.lazy(() => import('@pages/SingUp/singup'))
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -22,7 +21,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Router>
         <Routes>
           <Route path='logIn' element={<LogIn />} />
-          <Route path='logOut' element={<React.Suspense fallback={null}><LogOut /></React.Suspense>} />
           <Route path='singUp' element={<React.Suspense fallback={null}><SingUp /></React.Suspense>} />
           <Route path='/' element={<App />}>
             <Route path='home' element={<React.Suspense fallback={null}><Home /></React.Suspense>} />

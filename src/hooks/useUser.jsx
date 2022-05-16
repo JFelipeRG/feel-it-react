@@ -1,13 +1,13 @@
 import { useCallback, useContext, useState } from 'react'
 import Context from '@context/UserContext'
-import { getUser } from '@services/user.services'
+import { login } from '@services/user.services'
 
 export default function useUser () {
   const { user, setUser } = useContext(Context)
   const [error, setError] = useState({ state: false, message: '' })
 
-  const login = useCallback(({ nick, passw }) => {
-    getUser({ nick, passw })
+  const loginUser = useCallback(({ nick, passw }) => {
+    login({ nick, passw })
       .then(user => {
         if (user.length === 0) throw new Error()
 
@@ -26,5 +26,5 @@ export default function useUser () {
     setUser(null)
   }, [setUser])
 
-  return { isLogged: Boolean(user), login, logout, error }
+  return { isLogged: Boolean(user), loginUser, logout, error }
 }

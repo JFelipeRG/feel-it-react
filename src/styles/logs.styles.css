@@ -63,12 +63,6 @@
   cursor: pointer;
 }
 
-.option-container {
-  border: 1px solid black;
-  border-radius: 7px;
-  padding: 20px;
-}
-
 .links-options {
   text-align: center;
   margin: 5px 0;
