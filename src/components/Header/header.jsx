@@ -1,9 +1,20 @@
+import './header.css'
+
 import LogOut from '@components/LogOut/logout'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useMatch } from 'react-router-dom'
+
+import useUser from '@hooks/useUser'
+
+const ItemNav = ({ to, label }) => {
+  const match = useMatch(to)
+
+  return <Link className={match && 'active'} to={to}>{label}</Link>
+}
 
 export default function Header () {
   const [showModal, setShowModal] = useState(false)
+  const { user } = useUser()
 
   const handleClick = () => {
     setShowModal(true)
@@ -15,13 +26,19 @@ export default function Header () {
 
   return (
     <>
-      <aside>
-        <nav>
-          <Link to='/home'>Home</Link>
-          <Link to='/profile'>Profile</Link>
-          <Link to='/post'>Post</Link>
-          <Link to='#' onClick={handleClick}>Log Out</Link>
+      <aside className='menu'>
+        <div className='logo-app'>
+          <h1>logo</h1>
+        </div>
+        <nav className='nav-bar'>
+          <ItemNav to='/home' label='Home' />
+          <ItemNav to={'profile/' + user[0].name} label='Profile' />
+          <ItemNav to='/post' label='Post' />
         </nav>
+        <div className='user-info'>
+          <Link to='#' onClick={handleClick}>Log Out</Link>
+          <h1>profile</h1>
+        </div>
       </aside>
       {
         showModal && <LogOut onClose={handleClose} />

@@ -16,14 +16,14 @@ function App () {
   }, [isLogged])
 
   return (
-    <>
+    <div className='main-content'>
       <div className='app-header'>
         <Header />
       </div>
       <div className='app-body'>
         <Outlet />
       </div>
-    </>
+    </div>
   )
 }
 

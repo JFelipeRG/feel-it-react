@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='singUp' element={<React.Suspense fallback={null}><SingUp /></React.Suspense>} />
           <Route path='/' element={<App />}>
             <Route path='home' element={<React.Suspense fallback={null}><Home /></React.Suspense>} />
-            <Route path='profile' element={<React.Suspense fallback={null}><Profile /></React.Suspense>} />
+            <Route path='profile/:name' element={<React.Suspense fallback={null}><Profile /></React.Suspense>} />
             <Route path='post' element={<React.Suspense fallback={null}><Post /></React.Suspense>} />
           </Route>
         </Routes>

@@ -26,5 +26,5 @@ export default function useUser () {
     setUser(null)
   }, [setUser])
 
-  return { isLogged: Boolean(user), loginUser, logout, error }
+  return { user, isLogged: Boolean(user), loginUser, logout, error }
 }

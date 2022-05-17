@@ -1,0 +1,47 @@
+.menu {
+  width: 200px;
+  background-color: rgb(200 195 204);
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-app {
+  height: 70px;
+  background-color: bisque;
+  display: grid;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-bar a {
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  transition: all 0.4s;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.nav-bar a:hover {
+  background-color: violet;
+  transform: translateX(15px);
+}
+
+.nav-bar a.active {
+  background-color: violet;
+}
+
+.user-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
