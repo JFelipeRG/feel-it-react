@@ -13,6 +13,8 @@ const validateForm = values => {
   const errors = {}
   const fileTypes = ['image/jpg', 'image/jpeg', 'image/png']
 
+  if (!values.name) errors.name = 'Este campo no puede estar vacio'
+
   if (!values.nick) errors.nick = 'Este campo no puede estar vacio'
 
   if (!values.passw) errors.passw = 'Este campo no puede estar vacio'
@@ -21,9 +23,11 @@ const validateForm = values => {
 
   if (values.passw !== values.passw2) errors.passw2 = 'Las contraseñas no coinciden'
 
-  if (!fileTypes.includes(values.file.type)) errors.file = 'Formato de archivo no valido'
+  if (values.file) {
+    if (values.file.size > 153600) errors.file = 'Archivo demasiado grande'
 
-  if (values.file.size > 153600) errors.file = 'Archivo demasiado grande'
+    if (!fileTypes.includes(values.file.type)) errors.file = 'Formato de archivo no valido'
+  }
 
   return errors
 }
@@ -71,17 +75,22 @@ export default function Login () {
               <ErrorMessage className='error' name='file' component='span' />
             </div>
             <div className='input-container'>
-              <Field className='input-form' id='nick' name='nick' type='text' onBlur={({ target }) => handleBlur(target, 0)} />
+              <Field className='input-form' id='name' name='name' type='text' onBlur={({ target }) => handleBlur(target, 0)} />
+              <label className='label-form' htmlFor='user'>Name</label>
+              <ErrorMessage className='error' name='name' component='span' />
+            </div>
+            <div className='input-container'>
+              <Field className='input-form' id='nick' name='nick' type='text' onBlur={({ target }) => handleBlur(target, 1)} />
               <label className='label-form' htmlFor='user'>Nick</label>
               <ErrorMessage className='error' name='nick' component='span' />
             </div>
             <div className='input-container'>
-              <Field className='input-form' id='passw' name='passw' type='password' onBlur={({ target }) => handleBlur(target, 1)} />
+              <Field className='input-form' id='passw' name='passw' type='password' onBlur={({ target }) => handleBlur(target, 2)} />
               <label className='label-form' htmlFor='passw'>Password</label>
               <ErrorMessage className='error' name='passw' component='span' />
             </div>
             <div className='input-container'>
-              <Field className='input-form' id='passw2' name='passw2' type='password' onBlur={({ target }) => handleBlur(target, 2)} />
+              <Field className='input-form' id='passw2' name='passw2' type='password' onBlur={({ target }) => handleBlur(target, 3)} />
               <label className='label-form' htmlFor='passw2'>Confirm Password</label>
               <ErrorMessage className='error' name='passw2' component='span' />
             </div>

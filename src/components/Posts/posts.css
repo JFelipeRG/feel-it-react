@@ -1,0 +1,23 @@
+.post {
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.post-userinfo {
+  display: flex;
+  border-bottom: 2px solid grey;
+}
+
+.post-userinfo > * {
+  margin: 0 5px;
+}
+
+.post-userinfo img {
+  aspect-ratio: 1/1;
+  width: 50px;
+}
+
+.post-text {
+  padding-top: 5px;
+  padding-left: 10px;
+}

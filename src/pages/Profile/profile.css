@@ -1,0 +1,24 @@
+.body-profile {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.profile-user {
+  width: 20%;
+  height: fit-content;
+  border: 2px solid rgb(0 0 0 / 30%);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile-user img {
+  aspect-ratio: 1/1;
+  width: 100px;
+}
+
+.profile-posts {
+  width: 80%;
+  padding: 5px 20px;
+}

@@ -32,7 +32,7 @@ export default function Header () {
         </div>
         <nav className='nav-bar'>
           <ItemNav to='/home' label='Home' />
-          <ItemNav to={'profile/' + user[0].name} label='Profile' />
+          <ItemNav to={'profile/' + user.name} label='Profile' />
           <ItemNav to='/post' label='Post' />
         </nav>
         <div className='user-info'>
