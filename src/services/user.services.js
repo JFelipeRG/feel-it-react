@@ -11,4 +11,9 @@ const register = async params => {
   return data
 }
 
-export { login, register }
+const search = async params => {
+  const { data } = await axios.post(`${baseURL}/search`, params)
+  return data
+}
+
+export { login, register, search }

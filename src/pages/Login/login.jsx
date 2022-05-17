@@ -56,7 +56,7 @@ export default function Login () {
             <label className='label-form' htmlFor='passw'>Password</label>
             <ErrorMessage className='error' name='passw' component='span' />
           </div>
-          {error.state && <p className='error'>{error.message}</p>}
+          {error && <p className='error'>El usuario o la contraseña no son válidos</p>}
           <button className='button-form' type='submit'>Login</button>
           <div>
             <span>

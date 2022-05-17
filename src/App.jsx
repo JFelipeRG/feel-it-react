@@ -1,18 +1,19 @@
 import './App.css'
 
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 
 import Header from '@components/Header/header'
 
 import useUser from '@hooks/useUser'
 import { useEffect } from 'react'
-
+console.log('hola')
 function App () {
+  const location = useLocation().pathname
   const navigate = useNavigate()
   const { isLogged } = useUser()
 
   useEffect(() => {
-    navigate(isLogged ? '/home' : '/login')
+    if (location === '/') navigate(isLogged ? '/home' : '/login')
   }, [isLogged])
 
   return (
