@@ -37,8 +37,7 @@ export default function Login () {
   }, [isLogged])
 
   const handleSubmit = (values) => {
-    const archivo = values.file
-    archivo.Move('/src/assets/' + archivo.name)
+    console.log(values)
   }
 
   const handleBlur = (target, index) => {
@@ -60,7 +59,7 @@ export default function Login () {
         onSubmit={handleSubmit}
       >
         {({ values, setFieldValue }) => (
-          <Form className='form'>
+          <Form className='form' encType='multipart/form-data'>
             <h2>Registrar</h2>
             <div className='input-container'>
               <PreviewImage file={values.file} />
