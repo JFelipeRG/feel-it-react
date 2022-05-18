@@ -28,11 +28,11 @@ export default function Header () {
     <>
       <aside className='menu'>
         <div className='logo-app'>
-          <h1>logo</h1>
+          <img src='/src/assets/logo.svg' alt='' />
         </div>
         <nav className='nav-bar'>
           <ItemNav to='/home' label='Home' />
-          <ItemNav to={'profile/' + user.name} label='Profile' />
+          <ItemNav to={'profile/' + user.nick} label='Profile' />
           <ItemNav to='/post' label='Post' />
         </nav>
         <div className='user-info'>

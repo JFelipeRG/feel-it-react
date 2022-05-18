@@ -7,7 +7,8 @@ const login = async params => {
 }
 
 const register = async params => {
-  const { data } = await axios.post(`${baseURL}/register`, params)
+  const { data } = await axios.post(`${baseURL}/register`, params,
+    { headers: { 'Content-Type': 'multipart/form-data' } })
   return data
 }
 

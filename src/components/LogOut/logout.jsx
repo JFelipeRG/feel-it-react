@@ -15,10 +15,10 @@ export default function LogOut ({ onClose }) {
     <div className='modal'>
       <div className='option-container'>
         <div>
-          <p>Estas Seguro de que deseas cerrar sesión?</p>
+          <p>¿Estas seguro de que deseas cerrar sesión?</p>
           <div className='links-options'>
             <Link className='links' to='/login' onClick={handleClick}>Cerrar Sesión</Link>
-            <Link to='#' onClick={onClose}>Cancelar</Link>
+            <Link className='links' to='#' onClick={onClose}>Cancelar</Link>
           </div>
         </div>
       </div>

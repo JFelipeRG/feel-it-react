@@ -34,20 +34,25 @@ const validateForm = values => {
 
 export default function Login () {
   const navigate = useNavigate()
-  const { isLogged } = useUser()
+  const { isLogged, registerUser, error } = useUser()
 
   useEffect(() => {
     if (isLogged) navigate('/home')
   }, [isLogged])
 
   const handleSubmit = (values) => {
-    console.log(values)
+    registerUser({
+      name: values.name,
+      nick: values.nick,
+      passw: values.passw,
+      profileimg: values.file
+    })
   }
 
   const handleBlur = (target, index) => {
     const label = $$('.label-form')
     const i = index
-    target.value !== '' ? label[i].style.transform = 'translateY(-20px)' : label[i].style.transform = ''
+    target.value !== '' ? label[i].classList.add('noempty') : label[i].classList.remove('noempty')
   }
 
   return (
@@ -55,6 +60,7 @@ export default function Login () {
       <Formik
         initialValues={{
           file: '',
+          name: '',
           nick: '',
           passw: '',
           passw2: ''
@@ -63,17 +69,20 @@ export default function Login () {
         onSubmit={handleSubmit}
       >
         {({ values, setFieldValue }) => (
-          <Form className='form' encType='multipart/form-data'>
-            <h2>Registrar</h2>
-            <div className='input-container'>
+          <Form className='form'>
+            <h2>Registro</h2>
+            <div className='input-container img'>
               <PreviewImage file={values.file} />
-              <input
-                id='file' type='file' onChange={(e) => {
-                  setFieldValue('file', e.target.files[0])
-                }}
-              />
-              <ErrorMessage className='error' name='file' component='span' />
+              <div className='input-file'>
+                <label htmlFor='file' className='input-file-btn'>Seleccionar</label>
+                <input
+                  id='file' type='file' onChange={(e) => {
+                    setFieldValue('file', e.target.files[0])
+                  }}
+                />
+              </div>
             </div>
+            <ErrorMessage className='error' name='file' component='span' />
             <div className='input-container'>
               <Field className='input-form' id='name' name='name' type='text' onBlur={({ target }) => handleBlur(target, 0)} />
               <label className='label-form' htmlFor='user'>Name</label>
@@ -94,10 +103,11 @@ export default function Login () {
               <label className='label-form' htmlFor='passw2'>Confirm Password</label>
               <ErrorMessage className='error' name='passw2' component='span' />
             </div>
+            {error && <p className='error'>El usario ya registrado</p>}
             <div className='button-container'>
               <button className='button-form' type='submit'>Registrarse</button>
               <Link to='/login'>
-                <button className='button-form'>Volver</button>
+                <button className='button-form invert'>Volver</button>
               </Link>
             </div>
           </Form>

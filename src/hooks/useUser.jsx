@@ -1,8 +1,10 @@
 import { useCallback, useContext, useState } from 'react'
 import Context from '@context/UserContext'
-import { login } from '@services/user.services'
+import { login, register } from '@services/user.services'
+import { useNavigate } from 'react-router-dom'
 
 export default function useUser () {
+  const navigate = useNavigate()
   const { user, setUser } = useContext(Context)
   const [error, setError] = useState(false)
 
@@ -10,7 +12,7 @@ export default function useUser () {
     login({ nick, passw })
       .then(user => {
         window.sessionStorage.setItem('user', JSON.stringify(user))
-        setError(true)
+        setError(false)
         setUser(user)
       }).catch(err => {
         window.sessionStorage.removeItem('user')
@@ -24,5 +26,16 @@ export default function useUser () {
     setUser(null)
   }, [setUser])
 
-  return { user, isLogged: Boolean(user), loginUser, logout, error }
+  const registerUser = useCallback(({ name, nick, passw, profileimg }) => {
+    register({ name, nick, passw, profileimg })
+      .then(() => {
+        setError(false)
+        navigate('/login')
+      }).catch(err => {
+        setError(true)
+        console.log(err)
+      })
+  }, [])
+
+  return { user, isLogged: Boolean(user), loginUser, logout, registerUser, error }
 }

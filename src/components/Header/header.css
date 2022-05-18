@@ -1,19 +1,26 @@
 .menu {
   width: 200px;
-  background-color: rgb(200 195 204);
   position: relative;
   overflow: hidden;
 }
 
 .logo-app {
-  height: 70px;
-  background-color: bisque;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: grid;
   align-items: center;
-  padding: 0 10px;
+}
+
+.logo-app img {
+  margin: auto;
+  aspect-ratio: 1/1;
+  height: 100px;
 }
 
 .nav-bar {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -32,12 +39,13 @@
 }
 
 .nav-bar a:hover {
-  background-color: violet;
+  background-color: var(--rosequartz);
   transform: translateX(15px);
 }
 
 .nav-bar a.active {
-  background-color: violet;
+  background-color: var(--rosequartz);
+  font-weight: bold;
 }
 
 .user-info {

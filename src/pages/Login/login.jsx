@@ -31,7 +31,7 @@ export default function Login () {
   const handleBlur = (target, index) => {
     const label = $$('.label-form')
     const i = index
-    target.value !== '' ? label[i].style.transform = 'translateY(-20px)' : label[i].style.transform = ''
+    target.value !== '' ? label[i].classList.add('noempty') : label[i].classList.remove('noempty')
   }
 
   return (
@@ -46,19 +46,21 @@ export default function Login () {
       >
         <Form className='form'>
           <h2>Login</h2>
-          <div className='input-container'>
-            <Field className='input-form' type='text' name='nick' onBlur={({ target }) => handleBlur(target, 0)} />
-            <label className='label-form' htmlFor='nick'>Nick</label>
-            <ErrorMessage className='error' name='nick' component='span' />
+          <div className='form-inputs'>
+            <div className='input-container'>
+              <Field className='input-form' type='text' name='nick' onBlur={({ target }) => handleBlur(target, 0)} />
+              <label className='label-form' htmlFor='nick'>Nick</label>
+              <ErrorMessage className='error' name='nick' component='span' />
+            </div>
+            <div className='input-container'>
+              <Field className='input-form' type='password' name='passw' onBlur={({ target }) => handleBlur(target, 1)} />
+              <label className='label-form' htmlFor='passw'>Password</label>
+              <ErrorMessage className='error' name='passw' component='span' />
+            </div>
+            {error && <p className='error'>El usuario o la contraseña no son válidos</p>}
+            <button className='button-form' type='submit'>Login</button>
           </div>
-          <div className='input-container'>
-            <Field className='input-form' type='password' name='passw' onBlur={({ target }) => handleBlur(target, 1)} />
-            <label className='label-form' htmlFor='passw'>Password</label>
-            <ErrorMessage className='error' name='passw' component='span' />
-          </div>
-          {error && <p className='error'>El usuario o la contraseña no son válidos</p>}
-          <button className='button-form' type='submit'>Login</button>
-          <div>
+          <div className='registro-link'>
             <span>
               No estas Registrado?  <Link to='/singUp'>Registrarse</Link>
             </span>

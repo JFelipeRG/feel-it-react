@@ -5,7 +5,8 @@
 }
 
 .app-header {
-  background-color: grey;
+  background-color: rgb(0 0 0 / 50%);
+  color: white;
   width: 20%;
   position: relative;
   display: flex;
@@ -15,4 +16,5 @@
 .app-body {
   width: 80%;
   padding: 10px;
+  background-color: var(--rosequartz);
 }
