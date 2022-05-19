@@ -10,8 +10,8 @@ export default function ModalPost ({ refItem, onClose }) {
           <textarea placeholder='Exprésate...' maxLength='180' />
         </div>
         <div>
-          <input type='text' />
-          <Song />
+          <input className='search-song' type='text' />
+          <Song name='hola' />
         </div>
         <button className='btn' disabled>Postear</button>
       </div>

@@ -1,5 +1,8 @@
 import './song.css'
 
+import { AiFillYoutube } from 'react-icons/ai'
+import { BsSpotify } from 'react-icons/bs'
+
 export default function Song (props) {
   return (
     <div className='song-info'>
@@ -14,8 +17,8 @@ export default function Song (props) {
               <span>Artista</span>
             </div>
             <div className='links'>
-              <span>Link YT</span>
-              <span>Link Spoti</span>
+              <AiFillYoutube />
+              <BsSpotify />
             </div>
           </>
           )

@@ -49,6 +49,16 @@
   color: white;
 }
 
+.search-song {
+  background: var(--rose);
+  border: none;
+  border-radius: 7px;
+  height: 20px;
+  outline: none;
+  padding: 0 10px;
+  font-size: 0.9em;
+}
+
 .info-post .btn {
   margin: 7px auto;
 }
