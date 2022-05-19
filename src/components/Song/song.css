@@ -1,0 +1,22 @@
+.song-info {
+  margin-top: 5px;
+  background-color: grey;
+  border-radius: 7px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.song-info .img {
+  width: 80px;
+}
+
+.song-info .tag-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-info h3 {
+  width: 100%;
+}

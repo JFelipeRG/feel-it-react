@@ -74,7 +74,7 @@ export default function Login () {
             <div className='input-container img'>
               <PreviewImage file={values.file} />
               <div className='input-file'>
-                <label htmlFor='file' className='input-file-btn'>Seleccionar</label>
+                <label htmlFor='file' className='btn primary input-file-btn'>Seleccionar</label>
                 <input
                   id='file' type='file' onChange={(e) => {
                     setFieldValue('file', e.target.files[0])
@@ -105,9 +105,9 @@ export default function Login () {
             </div>
             {error && <p className='error'>El usario ya registrado</p>}
             <div className='button-container'>
-              <button className='button-form' type='submit'>Registrarse</button>
+              <button className='btn primary' type='submit'>Registrarse</button>
               <Link to='/login'>
-                <button className='button-form invert'>Volver</button>
+                <button className='btn secondary'>Volver</button>
               </Link>
             </div>
           </Form>

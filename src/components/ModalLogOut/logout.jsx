@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom'
 export default function LogOut ({ onClose }) {
   const { logout } = useUser()
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     logout()
   }
 
   return (
-    <div className='modal'>
+    <div className='modal-log'>
       <div className='option-container'>
         <div>
           <p>¿Estas seguro de que deseas cerrar sesión?</p>

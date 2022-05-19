@@ -1,11 +1,11 @@
-.modal {
+.modal-log {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: var(--rosequartz-low-opacity);
-  backdrop-filter: blur(0.8px);
+  background-color: var(--rose-low-opacity);
+  backdrop-filter: blur(4px);
   display: grid;
   align-items: center;
 }
@@ -17,7 +17,7 @@
 .links {
   margin: 0 10px;
   text-decoration: none;
-  color: white;
+  color: black;
   transition: all 0.3s ease-out;
   border: 2px solid white;
   border-radius: 7px;
@@ -25,16 +25,16 @@
 }
 
 .links:hover {
-  border-color: var(--rosequartz);
-  background-color: var(--rosequartz);
-  color: var(--blueiris);
+  border-color: var(--rose);
+  background-color: var(--rose);
+  color: black;
 }
 
 .option-container {
   color: black;
   font-weight: bold;
   font-size: 0.8em;
-  background-color: rgb(0 0 0 / 40%);
+  background-color: var(--green);
   border-radius: 7px;
   width: 400px;
   height: 200px;

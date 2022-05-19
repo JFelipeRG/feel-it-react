@@ -58,7 +58,7 @@ export default function Login () {
               <ErrorMessage className='error' name='passw' component='span' />
             </div>
             {error && <p className='error'>El usuario o la contraseña no son válidos</p>}
-            <button className='button-form' type='submit'>Login</button>
+            <button className='btn primary' type='submit'>Login</button>
           </div>
           <div className='registro-link'>
             <span>

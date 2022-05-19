@@ -1,5 +1,5 @@
 /*
-  palette url: https://www.canva.com/colors/color-palettes/february-sky/
+  palette url: https://coolors.co/f04d3c-41afa7-fccb64-9fa8eb-f6d4d2
 */
 
 * {
@@ -13,13 +13,15 @@ body {
   height: 100vh;
   width: 100%;
   display: grid;
+  font-size: 1em;
 }
 
 /* Variables globales */
 :root {
-  --blueiris: #5a4fcf;
-  --periwinkle: #9fa8eb;
-  --liliac: #edd1fa;
-  --rosequartz: #f6d4d2;
-  --rosequartz-low-opacity: #f6d4d25d;
+  --green: #41afa7;
+  --orange: #f04d3c;
+  --yellow: #fccb64;
+  --purple: #9fa8eb;
+  --rose: #f6d4d2;
+  --rose-low-opacity: #f6d4d25d;
 }
