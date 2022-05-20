@@ -1,18 +1,25 @@
+.blur-back {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--rose-low-opacity);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
 .new-post {
   background-color: var(--green);
   border-radius: 7px;
-  width: 400px;
-  height: 230px;
+  width: 450px;
+  min-height: 250px;
   margin: 0 auto;
   position: absolute;
-  top: -230px;
+  top: 10px;
   left: 0;
   right: 0;
   transition: all 0.4s ease-in-out;
-}
-
-.new-post.active {
-  top: 10px;
 }
 
 .info-post {
@@ -22,7 +29,7 @@
   text-align: center;
   color: black;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: 1em;
   padding: 10px;
 }
 
@@ -43,20 +50,11 @@
   outline: none;
   border-bottom: 1px solid black;
   color: white;
+  font-size: 1em;
 }
 
 .info-post textarea::placeholder {
   color: white;
-}
-
-.search-song {
-  background: var(--rose);
-  border: none;
-  border-radius: 7px;
-  height: 20px;
-  outline: none;
-  padding: 0 10px;
-  font-size: 0.9em;
 }
 
 .info-post .btn {

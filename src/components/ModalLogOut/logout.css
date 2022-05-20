@@ -8,6 +8,7 @@
   backdrop-filter: blur(4px);
   display: grid;
   align-items: center;
+  z-index: 1;
 }
 
 .links-options {

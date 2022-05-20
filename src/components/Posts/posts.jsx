@@ -1,3 +1,4 @@
+import Song from '@components/Song/song'
 import './posts.css'
 
 export default function Post (props) {
@@ -13,7 +14,7 @@ export default function Post (props) {
       </div>
       <p className='post-text'>{props.contenido}</p>
       <div className='post-song'>
-        <h1>Aqui va la cancion</h1>
+        <Song {...props.cancion} />
       </div>
     </div>
   )

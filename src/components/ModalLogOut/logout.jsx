@@ -1,10 +1,12 @@
 import '@styles/logs.styles.css'
 import './logout.css'
 
+import ReactDOM from 'react-dom'
+
 import useUser from '@hooks/useUser'
 import { Link } from 'react-router-dom'
 
-export default function LogOut ({ onClose }) {
+function LogOut ({ onClose }) {
   const { logout } = useUser()
 
   const handleClick = () => {
@@ -23,5 +25,12 @@ export default function LogOut ({ onClose }) {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function LogOutPortal ({ onClose }) {
+  return ReactDOM.createPortal(
+    <LogOut onClose={onClose} />,
+    document.getElementById('modals')
   )
 }

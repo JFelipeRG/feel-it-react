@@ -1,5 +1,22 @@
+import usePosts from '@hooks/usePosts'
+import Post from '@components/Posts/posts'
+
 export default function Home () {
-  return (
-    <h1>Estas en Main</h1>
-  )
+  const { posts, isLoading } = usePosts()
+
+  if (isLoading) {
+    return (
+      <h1>Cargando...</h1>
+    )
+  }
+
+  if (posts) {
+    return (
+      <div>
+        {posts.map((post) => {
+          return <Post key={post.id} {...post} />
+        })}
+      </div>
+    )
+  }
 }

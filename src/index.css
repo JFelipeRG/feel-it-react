@@ -16,6 +16,12 @@ body {
   font-size: 1em;
 }
 
+#modals {
+  width: 0;
+  height: 0;
+  background-color: #41afa7;
+}
+
 /* Variables globales */
 :root {
   --green: #41afa7;

@@ -1,6 +1,6 @@
 import './header.css'
 
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Link, useMatch } from 'react-router-dom'
 
 import { AiFillHome } from 'react-icons/ai'
@@ -26,7 +26,6 @@ const ItemNav = ({ to, label, Item }) => {
 export default function Header () {
   const [showModalLogOut, setShowModalLogOut] = useState(false)
   const [showModalPost, setShowModalPost] = useState(false)
-  const postRef = useRef()
   const { user } = useUser()
   const urlImg = user.profile_img ? `http://localhost:3002/api/user/img/${user.profile_img}` : '/src/assets/img/default-user.png'
 
@@ -40,12 +39,10 @@ export default function Header () {
 
   const handleClickPost = () => {
     setShowModalPost(true)
-    postRef.current.classList.add('active')
   }
 
   const handleClosePost = () => {
     setShowModalPost(false)
-    postRef.current.classList.remove('active')
   }
 
   return (
@@ -74,9 +71,8 @@ export default function Header () {
         showModalLogOut && <LogOut onClose={handleCloseLogOut} />
       }
       {
-        showModalPost && <div className='blur-back' />
+        showModalPost && <ModalPost onClose={handleClosePost} />
       }
-      <ModalPost refItem={postRef} onClose={handleClosePost} />
     </>
   )
 }

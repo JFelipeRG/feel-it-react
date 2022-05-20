@@ -1,22 +1,69 @@
 .song-info {
   margin-top: 5px;
-  background-color: grey;
+  padding: 7px;
+  background-color: var(--yellow);
   border-radius: 7px;
-  height: 60px;
+  height: 80px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   position: relative;
 }
 
 .song-info .img {
-  width: 80px;
+  width: 70px;
+  height: 100%;
+}
+
+.song-info .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
 }
 
 .song-info .tag-info {
-  display: flex;
-  flex-direction: column;
+  text-align: left;
+  margin-left: 7px;
+  font-size: 1.1em;
+  flex: 1;
+}
+
+.song-info .tag-info p:last-child {
+  color: grey;
+  font-size: 0.9em;
+  font-weight: normal;
 }
 
 .song-info h3 {
   width: 100%;
+}
+
+.links-songs {
+  margin-right: 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.links-songs > a {
+  margin: 0 7px;
+  width: 100%;
+  height: 35px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.links-songs a:first-child svg {
+  color: var(--orange);
+  width: 35px;
+  height: 30px;
+}
+
+.links-songs a:last-child svg {
+  object-fit: contain;
+  color: var(--green);
+  width: 35px;
+  height: 24px;
 }
