@@ -1,0 +1,8 @@
+.explore-menu {
+  width: 100%;
+}
+
+.explore-menu > div {
+  display: flex;
+  flex-wrap: wrap;
+}

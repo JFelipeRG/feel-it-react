@@ -5,16 +5,26 @@
 }
 
 .app-header {
-  background-color: rgb(65 175 167);
+  background-color: var(--green);
   width: 20%;
   display: flex;
   justify-content: flex-end;
 }
 
 .app-body {
-  width: 80%;
-  padding: 10px;
-  background-color: var(--rose);
+  width: 50%;
+  background-color: white;
+}
+
+.explore-aside {
+  width: 30%;
+  background-color: white;
+  padding: 5px 10px;
+  overflow: auto;
+}
+
+.explore-aside::-webkit-scrollbar {
+  display: none;
 }
 
 .btn {

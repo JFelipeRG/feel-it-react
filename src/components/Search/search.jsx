@@ -2,7 +2,7 @@ import './search.css'
 
 import { createAutocomplete } from '@algolia/autocomplete-core'
 import { useMemo, useState, useRef } from 'react'
-import useSongs from '@hooks/useSongs'
+import { searchSong } from '@services/song.services'
 
 const SongInfo = ({ caratula, nombre, artista }) => {
   const url = `http://localhost:3002/api/cancion/img/${caratula}`
@@ -19,8 +19,6 @@ const SongInfo = ({ caratula, nombre, artista }) => {
 }
 
 export default function Search ({ songSelect }) {
-  const { songs } = useSongs()
-
   const [autoCompleteState, setAutocompleteState] = useState({
     collections: [],
     isOpen: false
@@ -34,18 +32,12 @@ export default function Search ({ songSelect }) {
         sourceId: 'songs-api',
         getItems: ({ query }) => {
           if (query) {
-            const resultados = songs.filter(product => {
-              const { nombre, artista } = product
-              return (
-                nombre.toLowerCase().includes(query.toLowerCase()) || artista.toLowerCase().includes(query.toLowerCase())
-              )
-            })
-
-            return resultados
+            return searchSong({ query })
+              .then(res => { return res })
           }
         }
       }]
-    }), [songs])
+    }), [])
 
   const selectSong = (item) => {
     autocomplete.setQuery('')

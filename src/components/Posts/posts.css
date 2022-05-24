@@ -1,23 +1,32 @@
 .post {
   width: 400px;
-  margin-bottom: 20px;
+  border-bottom: 3px solid var(--orange);
+  padding: 7px 10px;
 }
 
-.post-userinfo {
+.post a {
+  text-decoration: none;
+  color: black;
+}
+
+.post-info {
   display: flex;
-  border-bottom: 2px solid grey;
 }
 
-.post-userinfo > * {
+.post-info > * {
   margin: 0 5px;
 }
 
-.post-userinfo img {
+.post-info img {
   aspect-ratio: 1/1;
-  width: 50px;
+  width: 65px;
+  border-radius: 50%;
+}
+
+.post-info img:hover {
+  filter: contrast(105%);
 }
 
 .post-text {
-  padding-top: 5px;
-  padding-left: 10px;
+  padding-top: 2px;
 }

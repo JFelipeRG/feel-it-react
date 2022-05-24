@@ -1,9 +1,21 @@
 import axios from 'axios'
 const baseURL = 'http://localhost:3002/api/canciones'
 
-const obtainAll = async () => {
-  const { data } = await axios.get(`${baseURL}`)
+const searchSong = async params => {
+  const { data } = await axios.post(`${baseURL}/search`, params)
   return data
 }
 
-export { obtainAll }
+const hotest = async () => {
+  const { data } = await axios.get(`${baseURL}/hot`)
+
+  return data
+}
+
+const recent = async () => {
+  const { data } = await axios.get(`${baseURL}/recent`)
+
+  return data
+}
+
+export { searchSong, hotest, recent }

@@ -15,7 +15,7 @@ export default function Song (props) {
               <img src={url} alt='portada' />
             </div>
             <div className='tag-info'>
-              <p>{props.nombre}</p>
+              <p><b>{props.nombre}</b></p>
               <p>{props.artista}</p>
             </div>
             <div className='links-songs'>

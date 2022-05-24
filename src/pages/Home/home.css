@@ -1,0 +1,12 @@
+.home-posts {
+  margin: 0 10px;
+  overflow: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-posts::-webkit-scrollbar {
+  display: none;
+}

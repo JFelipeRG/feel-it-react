@@ -1,17 +1,22 @@
-import { useEffect, useState } from 'react'
-import { obtainAll } from '@services/song.services'
+import { useState, useCallback } from 'react'
+import { hotest, recent } from '@services/song.services'
 
 export default function useSongs () {
   const [songs, setSongs] = useState()
 
-  useEffect(() => {
-    obtainAll()
-      .then(songs => {
-        setSongs(songs)
-      }).catch(err => {
-        console.log(err)
+  const hotSongs = useCallback(() => {
+    hotest()
+      .then(res => {
+        setSongs(res)
       })
-  }, [])
+  }, [songs])
 
-  return { songs }
+  const recentSongs = useCallback(() => {
+    recent()
+      .then(res => {
+        setSongs(res)
+      })
+  }, [songs])
+
+  return { songs, hotSongs, recentSongs }
 }

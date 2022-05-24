@@ -1,0 +1,53 @@
+.song-minimal {
+  width: 110px;
+  background-color: var(--yellow);
+  margin: 7px 10px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.song-minimal img {
+  border-radius: 7px;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+}
+
+.song-minimal p {
+  white-space: nowrap;
+  cursor: default;
+}
+
+.song-minimal > div {
+  width: 100%;
+  display: flex;
+  justify-items: center;
+}
+
+.song-minimal > div > a {
+  margin: 7px 7px 0;
+  width: 35px;
+  height: 35px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.song-minimal a:first-child svg {
+  color: var(--orange);
+  width: 35px;
+  height: 30px;
+}
+
+.song-minimal a:last-child svg {
+  object-fit: contain;
+  color: var(--green);
+  width: 35px;
+  height: 24px;
+}

@@ -60,11 +60,11 @@ export default function Header () {
           <div className='user-image'>
             <img src={urlImg} alt='user image' />
           </div>
-          <div className='user-tags'>
+          <div className='user-tags' onClick={handleClickLogOut}>
             <span className='tag-name'><b>{user.name}</b></span>
             <span className='tag-nick'>@{user.nick}</span>
           </div>
-          <Link to='#' onClick={handleClickLogOut}><CgLogOut /></Link>
+          <CgLogOut />
         </div>
       </aside>
       {

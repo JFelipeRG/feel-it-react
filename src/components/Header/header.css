@@ -3,51 +3,61 @@
   width: 200px;
   position: relative;
   overflow: hidden;
+  font-size: 1.1em;
+}
+
+.menu,
+.nav-bar {
+  display: flex;
+  flex-direction: column;
 }
 
 .logo-app {
   margin-top: 10px;
   height: 90px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   display: grid;
-  align-items: center;
 }
 
 .logo-app img {
   margin: auto;
-  aspect-ratio: 1/1;
   height: 90px;
 }
 
 .nav-bar {
   margin-top: 30px;
-  display: flex;
-  flex-direction: column;
+  flex: 1;
 }
 
 .nav-bar a {
   padding: 10px 0;
+  font-size: 1.1em;
   text-align: center;
   text-decoration: none;
   color: black;
   transition: all 0.4s;
-  height: 100%;
+  height: 50px;
   width: 100%;
   overflow: hidden;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
   letter-spacing: 0.6px;
 }
 
+.nav-bar a,
+.user-info {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.nav-bar a:hover,
+.nav-bar a.active,
+.user-info:hover {
+  background-color: white;
+}
+
 .nav-bar a:hover {
-  background-color: var(--rose);
   transform: translateX(15px);
 }
 
 .nav-bar a.active {
-  background-color: var(--rose);
   font-weight: bold;
 }
 
@@ -57,8 +67,7 @@
   justify-content: center;
 }
 
-.nav-bar button svg,
-.nav-bar a div svg {
+.nav-bar svg {
   margin: 0 7px;
 }
 
@@ -69,7 +78,7 @@
   justify-content: center;
   margin: 20px auto;
   background-color: white;
-  color: #f04d3c;
+  color: var(--rose);
   font-weight: bold;
   border: none;
   transition: all 0.1s;
@@ -80,17 +89,15 @@
 }
 
 .user-info {
-  position: absolute;
-  right: 0;
-  bottom: 15px;
-  width: 170px;
-  height: 60px;
+  margin-bottom: 20px;
+  width: 100%;
   display: flex;
   align-items: center;
+  padding: 5px;
 }
 
 .user-info .user-image {
-  width: 70px;
+  width: 60px;
   margin-right: 7px;
 }
 
@@ -100,22 +107,18 @@
   border-radius: 50%;
 }
 
-.user-info a {
-  position: absolute;
-  right: 10px;
-  text-decoration: none;
-  color: black;
-}
-
 .user-info svg {
-  width: 1.3em;
-  height: 1.3em;
+  cursor: pointer;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .user-tags {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   font-size: 0.9em;
+  flex: 1;
 }
 
 .tag-name,

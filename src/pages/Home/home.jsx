@@ -1,3 +1,5 @@
+import './home.css'
+
 import usePosts from '@hooks/usePosts'
 import Post from '@components/Posts/posts'
 
@@ -12,7 +14,7 @@ export default function Home () {
 
   if (posts) {
     return (
-      <div>
+      <div className='home-posts'>
         {posts.map((post) => {
           return <Post key={post.id} {...post} />
         })}

@@ -11,18 +11,18 @@ export default function useUser () {
   const loginUser = useCallback(({ nick, passw }) => {
     login({ nick, passw })
       .then(user => {
-        window.sessionStorage.setItem('user', JSON.stringify(user))
+        window.localStorage.setItem('user', JSON.stringify(user))
         setError(false)
         setUser(user)
       }).catch(err => {
-        window.sessionStorage.removeItem('user')
+        window.localStorage.removeItem('user')
         setError(true)
         console.log(err.message)
       })
   }, [setUser])
 
   const logout = useCallback(() => {
-    window.sessionStorage.removeItem('user')
+    window.localStorage.removeItem('user')
     setUser(null)
   }, [setUser])
 
