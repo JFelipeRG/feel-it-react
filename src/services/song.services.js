@@ -18,4 +18,10 @@ const recent = async () => {
   return data
 }
 
-export { searchSong, hotest, recent }
+const compartida = async params => {
+  const { data } = await axios.post(`${baseURL}/compartida`, params)
+
+  return data
+}
+
+export { searchSong, hotest, recent, compartida }

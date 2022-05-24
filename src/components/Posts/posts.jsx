@@ -1,9 +1,12 @@
+import EllipsisIcon from '@components/Icons/ellipsisIcon'
 import Song from '@components/Song/song'
+import useUser from '@hooks/useUser'
 import { getDiffTime } from '@utils/dates'
 import { Link } from 'react-router-dom'
 import './posts.css'
 
 export default function Post (props) {
+  const { user } = useUser()
   const urlImg = props.usuario.profile_img ? `http://localhost:3002/api/user/img/${props.usuario.profile_img}` : '/src/assets/img/default-user.png'
 
   const diffTime = getDiffTime(props.fecha_post)
@@ -24,6 +27,13 @@ export default function Post (props) {
       <div className='post-song'>
         <Song {...props.cancion} />
       </div>
+      {
+        user.id === props.usuario.id && (
+          <div className='post-user-menu' onClick={() => console.log('hola')}>
+            <EllipsisIcon />
+          </div>
+        )
+      }
     </div>
   )
 }

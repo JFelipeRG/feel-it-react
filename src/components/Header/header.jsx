@@ -3,22 +3,22 @@ import './header.css'
 import { useState } from 'react'
 import { Link, useMatch } from 'react-router-dom'
 
-import { AiFillHome } from 'react-icons/ai'
-import { FaUserAlt } from 'react-icons/fa'
-import { HiPencilAlt } from 'react-icons/hi'
-import { CgLogOut } from 'react-icons/cg'
-
 import useUser from '@hooks/useUser'
 
 import LogOut from '@components/ModalLogOut/logout'
 import ModalPost from '@components/ModalNewPost/newpost'
 
-const ItemNav = ({ to, label, Item }) => {
+import HomeIcon from '@components/Icons/homeIcon'
+import PostIcon from '@components/Icons/postIcon'
+import ProfileIcon from '@components/Icons/profileIcon'
+import LogOutIcon from '@components/Icons/logOutIcon'
+
+const ItemNav = ({ to, label, item }) => {
   const match = useMatch(to)
 
   return (
     <Link className={match && 'active'} to={to}>
-      <div>{Item} {label}</div>
+      <div>{item} {label}</div>
     </Link>
   )
 }
@@ -52,19 +52,19 @@ export default function Header () {
           <img src='/src/assets/SVG/logo.svg' alt='' />
         </div>
         <nav className='nav-bar'>
-          <ItemNav to='/home' label='Home' Item={<AiFillHome />} />
-          <ItemNav to={'profile/' + user.nick} label='Profile' Item={<FaUserAlt />} />
-          <button className='btn' type='button' onClick={handleClickPost}><HiPencilAlt />New Post</button>
+          <ItemNav to='/home' label='Home' item={<HomeIcon />} />
+          <ItemNav to={'profile/' + user.nick} label='Profile' item={<ProfileIcon />} />
+          <button className='btn' type='button' onClick={handleClickPost}><PostIcon /> New Post</button>
         </nav>
-        <div className='user-info'>
+        <div className='user-info' onClick={handleClickLogOut}>
           <div className='user-image'>
             <img src={urlImg} alt='user image' />
           </div>
-          <div className='user-tags' onClick={handleClickLogOut}>
+          <div className='user-tags'>
             <span className='tag-name'><b>{user.name}</b></span>
             <span className='tag-nick'>@{user.nick}</span>
           </div>
-          <CgLogOut />
+          <LogOutIcon />
         </div>
       </aside>
       {

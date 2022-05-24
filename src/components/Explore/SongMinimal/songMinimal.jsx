@@ -1,7 +1,7 @@
 import './songsminimal.css'
 
-import { AiFillYoutube } from 'react-icons/ai'
-import { BsSpotify } from 'react-icons/bs'
+import YT from '@assets/SVG/youtube.svg'
+import Spotify from '@assets/SVG/spotify.svg'
 
 export default function SongMinimal (props) {
   const url = `http://localhost:3002/api/cancion/img/${props.caratula}`
@@ -9,8 +9,8 @@ export default function SongMinimal (props) {
     <div className='song-minimal' title={props.nombre + ' - ' + props.artista}>
       <img src={url} alt='' />
       <div>
-        <a href={props.link_yt} target='_blank' rel='noreferrer'><AiFillYoutube /></a>
-        <a href={props.link_spoty} target='_blank' rel='noreferrer'><BsSpotify /></a>
+        <a href={props.link_yt} target='_blank' rel='noreferrer'><img src={YT} alt='' /></a>
+        <a href={props.link_spoty} target='_blank' rel='noreferrer'><img src={Spotify} alt='' /></a>
       </div>
     </div>
   )

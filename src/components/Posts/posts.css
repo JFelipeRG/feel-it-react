@@ -2,6 +2,15 @@
   width: 400px;
   border-bottom: 3px solid var(--orange);
   padding: 7px 10px;
+  position: relative;
+}
+
+.post-user-menu svg {
+  color: rgb(0 0 0 / 70%);
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .post a {

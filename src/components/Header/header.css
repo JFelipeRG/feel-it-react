@@ -61,14 +61,27 @@
   font-weight: bold;
 }
 
+.nav-bar a.active svg {
+  stroke-width: 2;
+  transition: 0.4s;
+}
+
 .nav-bar a div {
   display: flex;
+  height: 100%;
   align-items: center;
   justify-content: center;
 }
 
 .nav-bar svg {
-  margin: 0 7px;
+  height: 25px;
+  width: 25px;
+  margin-right: 7px;
+}
+
+.nav-bar img {
+  width: 19px;
+  margin: 0 5px;
 }
 
 .nav-bar button,
@@ -94,6 +107,7 @@
   display: flex;
   align-items: center;
   padding: 5px;
+  cursor: pointer;
 }
 
 .user-info .user-image {
@@ -114,7 +128,6 @@
 }
 
 .user-tags {
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   font-size: 0.9em;
