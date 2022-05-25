@@ -27,7 +27,7 @@ export default function Header () {
   const [showModalLogOut, setShowModalLogOut] = useState(false)
   const [showModalPost, setShowModalPost] = useState(false)
   const { user } = useUser()
-  const urlImg = user.profile_img ? `http://localhost:3002/api/user/img/${user.profile_img}` : '/src/assets/img/default-user.png'
+  const urlImg = `http://localhost:3002/api/user/img/${user.profile_img}`
 
   const handleClickLogOut = () => {
     setShowModalLogOut(true)

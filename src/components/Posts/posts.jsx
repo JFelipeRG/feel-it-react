@@ -43,7 +43,7 @@ export default function Post (props) {
   const [showModal, setShowModal] = useState(false)
 
   const { user } = useUser()
-  const urlImg = props.usuario.profile_img ? `http://localhost:3002/api/user/img/${props.usuario.profile_img}` : '/src/assets/img/default-user.png'
+  const urlImg = `http://localhost:3002/api/user/img/${props.usuario.profile_img}`
 
   const diffTime = getDiffTime(props.fecha_post)
 

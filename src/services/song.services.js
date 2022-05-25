@@ -25,7 +25,7 @@ const compartida = async params => {
 }
 
 const removecompartida = async params => {
-  const { data } = await axios.post(`${baseURL}/nocompartida`, params)
+  const { data } = await axios.post(`${baseURL}/removecompartida`, params)
 
   return data
 }
