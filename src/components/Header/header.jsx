@@ -5,8 +5,8 @@ import { Link, useMatch } from 'react-router-dom'
 
 import useUser from '@hooks/useUser'
 
-import LogOut from '@components/ModalLogOut/logout'
-import ModalPost from '@components/ModalNewPost/newpost'
+import LogOut from '@components/Modals/LogOut/logout'
+import ModalPost from '@components/Modals/NewPost/newpost'
 
 import HomeIcon from '@components/Icons/homeIcon'
 import PostIcon from '@components/Icons/postIcon'

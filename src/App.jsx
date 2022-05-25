@@ -21,19 +21,22 @@ function App () {
   return (
     <>
       {isLogged &&
-        <div className='main-content'>
-          <div className='app-header'>
-            <Header />
-          </div>
-          <div className='app-body'>
-            <Outlet />
+        <>
+          <div className='cover-window' />
+          <div className='main-content'>
+            <div className='app-header'>
+              <Header />
+            </div>
+            <div className='app-body'>
+              <Outlet />
 
+            </div>
+            <div className='explore-aside'>
+              <Hotest />
+              <RecentSongs />
+            </div>
           </div>
-          <div className='explore-aside'>
-            <Hotest />
-            <RecentSongs />
-          </div>
-        </div>}
+        </>}
     </>
   )
 }

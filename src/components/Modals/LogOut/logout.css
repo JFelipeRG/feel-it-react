@@ -1,0 +1,14 @@
+.option-container {
+  color: black;
+  font-weight: bold;
+  font-size: 0.8em;
+  background-color: var(--green);
+  border-radius: 7px;
+  width: 400px;
+  height: 200px;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}

@@ -1,5 +1,6 @@
 import Song from '@components/Song/song'
 import './newpost.css'
+import '../index.css'
 
 import { useState, useRef } from 'react'
 import ReactDOM from 'react-dom'

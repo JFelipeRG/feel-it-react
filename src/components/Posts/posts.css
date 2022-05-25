@@ -5,12 +5,37 @@
   position: relative;
 }
 
-.post-user-menu svg {
+.post-user-menu {
   color: rgb(0 0 0 / 70%);
   cursor: pointer;
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+.toggle-menu {
+  display: flex;
+  position: absolute;
+  top: 0;
+  max-height: 0;
+  right: 0;
+  transition: all 0.4s ease-out;
+  overflow: hidden;
+  border-radius: 7px;
+  padding: 5px;
+  color: white;
+  z-index: 2;
+}
+
+.toggle-menu.visible {
+  max-height: 40px;
+  background-color: rgb(0 0 0 / 90%);
+}
+
+.toggle-menu svg {
+  margin-right: 7px;
+  color: red;
+  stroke-width: 2;
 }
 
 .post a {

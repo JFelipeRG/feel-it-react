@@ -24,4 +24,10 @@ const compartida = async params => {
   return data
 }
 
-export { searchSong, hotest, recent, compartida }
+const removecompartida = async params => {
+  const { data } = await axios.post(`${baseURL}/nocompartida`, params)
+
+  return data
+}
+
+export { searchSong, hotest, recent, compartida, removecompartida }

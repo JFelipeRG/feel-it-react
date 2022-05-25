@@ -1,14 +1,3 @@
-.blur-back {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: var(--rose-low-opacity);
-  backdrop-filter: blur(4px);
-  z-index: 1;
-}
-
 .new-post {
   background-color: var(--green);
   border-radius: 7px;

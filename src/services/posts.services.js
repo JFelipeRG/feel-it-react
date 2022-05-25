@@ -11,4 +11,10 @@ const obtainAll = async () => {
   return data
 }
 
-export { create, obtainAll }
+const remove = async params => {
+  const { data } = await axios.post(`${baseURL}/delete`, params)
+
+  return data
+}
+
+export { create, obtainAll, remove }

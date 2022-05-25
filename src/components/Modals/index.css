@@ -1,14 +1,17 @@
-.modal-log {
+.blur-back {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   background-color: var(--rose-low-opacity);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.blur-back.center {
   display: grid;
   align-items: center;
-  z-index: 1;
 }
 
 .links-options {
@@ -29,19 +32,4 @@
   border-color: var(--rose);
   background-color: var(--rose);
   color: black;
-}
-
-.option-container {
-  color: black;
-  font-weight: bold;
-  font-size: 0.8em;
-  background-color: var(--green);
-  border-radius: 7px;
-  width: 400px;
-  height: 200px;
-  display: grid;
-  align-items: center;
-  text-align: center;
-  margin: 0 auto;
-  position: relative;
 }
