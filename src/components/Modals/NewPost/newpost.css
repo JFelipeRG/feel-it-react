@@ -5,10 +5,14 @@
   min-height: 250px;
   margin: 0 auto;
   position: absolute;
-  top: 10px;
+  top: -250px;
   left: 0;
   right: 0;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.new-post.visible {
+  top: 10px;
 }
 
 .info-post {
@@ -47,5 +51,7 @@
 }
 
 .info-post .btn {
-  margin: 7px auto;
+  margin: 7px auto 0;
+  width: fit-content;
+  height: 30px;
 }

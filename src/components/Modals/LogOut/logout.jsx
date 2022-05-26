@@ -1,4 +1,3 @@
-import '@styles/logs.styles.css'
 import '../index.css'
 import './logout.css'
 

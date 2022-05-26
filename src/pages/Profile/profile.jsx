@@ -5,6 +5,7 @@ import Post from '@components/Posts/posts'
 import { useLocation } from 'react-router-dom'
 import useUser from '@hooks/useUser'
 import { useState } from 'react'
+import EditProfilePortal from '@components/Modals/EditProfile/editProfile'
 
 export default function Profile () {
   const name = (useLocation().pathname).split('/')[2]
@@ -30,7 +31,7 @@ export default function Profile () {
           <p>Creada el: {fecha.toLocaleDateString()}</p>
           {
             actualUser.id === user.id && (
-              <button onClick={() => setShowModal(!showModal)}>Editar Perfil</button>
+              <button onClick={() => setShowModal(true)}>Editar Perfil</button>
             )
           }
         </div>
@@ -41,7 +42,7 @@ export default function Profile () {
         </div>
         {
           showModal && (
-            <h1>Quieres mostar el modal</h1>
+            <EditProfilePortal onClose={() => setShowModal(false)} />
           )
         }
       </div>

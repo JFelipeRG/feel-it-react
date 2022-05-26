@@ -2,12 +2,12 @@ import './App.css'
 
 import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 
-import Header from '@components/Header/header'
-
 import useUser from '@hooks/useUser'
-import { useEffect } from 'react'
-import Hotest from '@components/Explore/HotestSongs/hotestSongs'
-import RecentSongs from '@components/Explore/RecentSongs/recentSongs'
+import React, { useEffect } from 'react'
+
+const Header = React.lazy(() => import('@components/Header/header'))
+const Hotest = React.lazy(() => import('@components/Explore/PopularSongs/popularSongs'))
+const RecentSongs = React.lazy(() => import('@components/Explore/RecentSongs/recentSongs'))
 
 function App () {
   const location = useLocation().pathname
@@ -25,15 +25,17 @@ function App () {
           <div className='cover-window' />
           <div className='main-content'>
             <div className='app-header'>
-              <Header />
+              <React.Suspense fallback={null}><Header /></React.Suspense>
             </div>
             <div className='app-body'>
               <Outlet />
 
             </div>
             <div className='explore-aside'>
-              <Hotest />
-              <RecentSongs />
+              <React.Suspense fallback={null}>
+                <Hotest />
+                <RecentSongs />
+              </React.Suspense>
             </div>
           </div>
         </>}

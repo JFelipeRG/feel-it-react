@@ -2,7 +2,7 @@ import Song from '@components/Song/song'
 import './newpost.css'
 import '../index.css'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
 import Search from '@components/Search/search'
@@ -11,7 +11,14 @@ import useUser from '@hooks/useUser'
 import usePosts from '@hooks/usePosts'
 
 function ModalPost ({ onClose }) {
+  const modalRef = useRef()
   const textRef = useRef()
+
+  useEffect(() => {
+    setTimeout(() => {
+      modalRef.current.classList.add('visible')
+    }, 0.2)
+  }, [])
 
   const { user } = useUser()
   const { newPost } = usePosts()
@@ -46,7 +53,7 @@ function ModalPost ({ onClose }) {
 
   return (
     <div className='blur-back'>
-      <div className='new-post'>
+      <div ref={modalRef} className='new-post'>
         <div className='info-post'>
           <i onClick={onClose}>✖</i>
           <div>

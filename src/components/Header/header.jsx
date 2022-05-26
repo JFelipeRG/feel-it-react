@@ -1,17 +1,18 @@
+import React, { useState } from 'react'
+
 import './header.css'
 
-import { useState } from 'react'
 import { Link, useMatch } from 'react-router-dom'
 
 import useUser from '@hooks/useUser'
-
-import LogOut from '@components/Modals/LogOut/logout'
-import ModalPost from '@components/Modals/NewPost/newpost'
 
 import HomeIcon from '@components/Icons/homeIcon'
 import PostIcon from '@components/Icons/postIcon'
 import ProfileIcon from '@components/Icons/profileIcon'
 import LogOutIcon from '@components/Icons/logOutIcon'
+
+const LogOut = React.lazy(() => import('@components/Modals/LogOut/logout'))
+const ModalPost = React.lazy(() => import('@components/Modals/NewPost/newpost'))
 
 const ItemNav = ({ to, label, item }) => {
   const match = useMatch(to)
@@ -48,9 +49,11 @@ export default function Header () {
   return (
     <>
       <aside className='menu'>
-        <div className='logo-app'>
-          <img src='/src/assets/SVG/logo.svg' alt='' />
-        </div>
+        <Link to='/home'>
+          <div className='logo-app'>
+            <img src='/src/assets/SVG/logo.svg' alt='' />
+          </div>
+        </Link>
         <nav className='nav-bar'>
           <ItemNav to='/home' label='Home' item={<HomeIcon />} />
           <ItemNav to={'profile/' + user.nick} label='Profile' item={<ProfileIcon />} />
@@ -68,10 +71,16 @@ export default function Header () {
         </div>
       </aside>
       {
-        showModalLogOut && <LogOut onClose={handleCloseLogOut} />
+        showModalLogOut && (
+          <React.Suspense fallback={null}>
+            <LogOut onClose={handleCloseLogOut} />
+          </React.Suspense>)
       }
       {
-        showModalPost && <ModalPost onClose={handleClosePost} />
+        showModalPost && (
+          <React.Suspense fallback={null}>
+            <ModalPost onClose={handleClosePost} />
+          </React.Suspense>)
       }
     </>
   )

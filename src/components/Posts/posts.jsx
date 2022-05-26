@@ -3,12 +3,13 @@ import TrashIcon from '@components/Icons/trashIcon'
 import Song from '@components/Song/song'
 import useUser from '@hooks/useUser'
 import { getDiffTime } from '@utils/dates'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './posts.css'
 
 import { $ } from '@utils/dom'
-import RemoveModal from '@components/Modals/RemovePost/removePost'
+
+const RemoveModal = React.lazy(() => import('@components/Modals/RemovePost/removePost'))
 
 const ToggleBorrar = ({ onClose, onClick }) => {
   const divRef = useRef()
@@ -82,7 +83,11 @@ export default function Post (props) {
         )
       }
       {
-        showModal && <RemoveModal onClose={handleCloseModal} idPost={props.id} idSong={props.cancion.id} />
+        showModal && (
+          <React.Suspense fallback={null}>
+            <RemoveModal onClose={handleCloseModal} idPost={props.id} idSong={props.cancion.id} />
+          </React.Suspense>
+        )
       }
     </div>
   )

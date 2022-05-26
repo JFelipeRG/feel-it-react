@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export default function PreviewImage ({ file }) {
-  const [preview, setPreview] = useState('src/assets/img/default-user.png')
+  const [preview, setPreview] = useState('/src/assets/img/default-user.png')
   const fileTypes = ['image/jpg', 'image/jpeg', 'image/png']
 
   if (file) {

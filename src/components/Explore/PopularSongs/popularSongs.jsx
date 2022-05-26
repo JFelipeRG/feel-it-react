@@ -12,7 +12,7 @@ export default function HotestSongs () {
   if (songs) {
     return (
       <div className='explore-menu'>
-        <h1>Hotest </h1>
+        <h1>Popular</h1>
         <span>(6 most shared songs)</span>
         <div>
           {songs.map(song => {

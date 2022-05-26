@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom'
 
 import './removePost.css'
+import '../index.css'
 import usePosts from '@hooks/usePosts'
 
 function RemovePost ({ onClose, idPost, idSong }) {

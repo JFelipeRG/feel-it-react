@@ -7,8 +7,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { UserContextProvider } from './context/UserContext'
 
 import App from './App'
-import LogIn from '@pages/Login/login'
 
+const LogIn = React.lazy(() => import('@pages/Login/login'))
 const Home = React.lazy(() => import('@pages/Home/home'))
 const Profile = React.lazy(() => import('@pages/Profile/profile'))
 
@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <UserContextProvider>
       <Router>
         <Routes>
-          <Route path='logIn' element={<LogIn />} />
+          <Route path='logIn' element={<React.Suspense fallback={null}><LogIn /></React.Suspense>} />
           <Route path='singUp' element={<React.Suspense fallback={null}><SingUp /></React.Suspense>} />
           <Route path='/' element={<App />}>
             <Route path='home' element={<React.Suspense fallback={null}><Home /></React.Suspense>} />
