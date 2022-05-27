@@ -12,9 +12,20 @@ const register = async params => {
   return data
 }
 
+const update = async params => {
+  const { data } = await axios.post(`${baseURL}/update`, params,
+    { headers: { 'Content-Type': 'multipart/form-data' } })
+  return data
+}
+
+const updatedUser = async params => {
+  const { data } = await axios.post(`${baseURL}/updatedUser`, params)
+  return data
+}
+
 const search = async params => {
   const { data } = await axios.post(`${baseURL}/search`, params)
   return data
 }
 
-export { login, register, search }
+export { login, register, search, update, updatedUser }

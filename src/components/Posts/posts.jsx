@@ -18,7 +18,7 @@ const ToggleBorrar = ({ onClose, onClick }) => {
   useEffect(() => {
     setTimeout(() => {
       divRef.current.classList.add('visible')
-    }, 0.5)
+    }, 50)
   }, [])
 
   coverWindow.classList.add('active')

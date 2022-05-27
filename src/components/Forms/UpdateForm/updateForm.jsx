@@ -1,8 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import PreviewImage from '@components/PreviewImage/PreviewImage'
-
 import useUser from '@hooks/useUser'
-import React, { Children, useEffect, useRef, useState } from 'react'
+
+import React, { useRef, useState } from 'react'
 
 const validateForm = values => {
   const errors = {}
@@ -21,14 +21,8 @@ const validateForm = values => {
   return errors
 }
 
-const InputFile = () => {
-    return (
-        
-    )
-}
-
-export default function UpdateForm ({ handleSubmit, onClose }) {
-  const { user } = useUser()
+export default function UpdateForm ({ onClose }) {
+  const { user, updateUser, error } = useUser()
   const [image, setImage] = useState(async () => {
     const res = await fetch(`http://localhost:3002/api/user/img/${user.profile_img}`)
     const datos = await res.blob()
@@ -39,8 +33,17 @@ export default function UpdateForm ({ handleSubmit, onClose }) {
 
   const restartImage = (setField) => {
     setField('file', '')
-    delete imageRef.current.files[0].name
-    console.log(imageRef.current.files[0])
+    imageRef.current.value = null
+  }
+
+  const handleSubmit = (values) => {
+    updateUser({
+      id: user.id,
+      name: values.name,
+      nick: values.nick,
+      profileimg: values.file,
+      onClose
+    })
   }
 
   return (
@@ -83,9 +86,13 @@ export default function UpdateForm ({ handleSubmit, onClose }) {
               <label className='label-form' htmlFor='user'>Nick</label>
               <ErrorMessage className='error' name='nick' component='span' />
             </div>
+            {console.log(error)}
+            {
+              error && <p className='error'>Nick ya registrado</p>
+            }
             <div className='button-container'>
               <button className='btn primary' type='submit'>Guardar</button>
-              <button className='btn secondary' onClick={onClose}>Cancelar</button>
+              <button type='button' className='btn secondary' onClick={onClose}>Cancelar</button>
             </div>
           </Form>
         )}

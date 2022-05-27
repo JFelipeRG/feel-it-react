@@ -4,8 +4,9 @@ import useProfile from '@hooks/useProfile'
 import Post from '@components/Posts/posts'
 import { useLocation } from 'react-router-dom'
 import useUser from '@hooks/useUser'
-import { useState } from 'react'
-import EditProfilePortal from '@components/Modals/EditProfile/editProfile'
+import React, { useState } from 'react'
+
+const EditProfilePortal = React.lazy(() => import('@components/Modals/EditProfile/editProfile'))
 
 export default function Profile () {
   const name = (useLocation().pathname).split('/')[2]
@@ -42,7 +43,9 @@ export default function Profile () {
         </div>
         {
           showModal && (
-            <EditProfilePortal onClose={() => setShowModal(false)} />
+            <React.Suspense fallback={null}>
+              <EditProfilePortal onClose={() => setShowModal(false)} />
+            </React.Suspense>
           )
         }
       </div>

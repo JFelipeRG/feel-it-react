@@ -10,6 +10,7 @@ function RemovePost ({ onClose, idPost, idSong }) {
   const handleClick = () => {
     removePost({ id: idPost, song: idSong })
     onClose()
+    window.location.reload(false)
   }
 
   return (

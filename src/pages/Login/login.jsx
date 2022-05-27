@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { $$ } from '@utils/dom'
 
 import useUser from '@hooks/useUser'
-import LoginForm from '@components/LoginForm/loginForm'
+import LoginForm from '@components/Forms/LoginForm/loginForm'
 
 export default function Login () {
   const navigate = useNavigate()

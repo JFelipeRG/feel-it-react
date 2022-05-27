@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState } from 'react'
 import Context from '@context/UserContext'
-import { login, register } from '@services/user.services'
+import { login, register, search, update, updatedUser } from '@services/user.services'
 import { useNavigate } from 'react-router-dom'
 
 export default function useUser () {
@@ -37,5 +37,49 @@ export default function useUser () {
       })
   }, [])
 
-  return { user, isLogged: Boolean(user), loginUser, logout, registerUser, error }
+  const updateUser = useCallback(({ id, name, nick, profileimg, onClose }) => {
+    console.log(onClose)
+    if (user.nick === nick) {
+      update({ id, name, nick, profileimg })
+        .then(() => {
+          updatedUser({ id })
+            .then(user => {
+              window.localStorage.setItem('user', JSON.stringify(user))
+              setUser(user)
+              setError(false)
+              onClose()
+              navigate(`/profile/${user.nick}`)
+            })
+        })
+    } else {
+      search({ nick })
+        .then(user => {
+          if (user) {
+            setError(true)
+          } else {
+            update({ id, name, nick, profileimg })
+              .then(() => {
+                updatedUser({ id })
+                  .then(user => {
+                    window.localStorage.setItem('user', JSON.stringify(user))
+                    setUser(user)
+                    setError(false)
+                    onClose()
+                    navigate(`/profile/${user.nick}`)
+                  })
+              })
+          }
+        })
+    }
+  }, [])
+
+  return {
+    user,
+    isLogged: Boolean(user),
+    loginUser,
+    logout,
+    registerUser,
+    updateUser,
+    error
+  }
 }

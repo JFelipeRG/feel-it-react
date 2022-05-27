@@ -17,7 +17,7 @@ function ModalPost ({ onClose }) {
   useEffect(() => {
     setTimeout(() => {
       modalRef.current.classList.add('visible')
-    }, 0.2)
+    }, 100)
   }, [])
 
   const { user } = useUser()
