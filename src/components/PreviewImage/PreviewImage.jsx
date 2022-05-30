@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export default function PreviewImage ({ file }) {
-  const [preview, setPreview] = useState('/src/assets/img/default-user.png')
+  const [preview, setPreview] = useState(null)
   const fileTypes = ['image/jpg', 'image/jpeg', 'image/png']
 
   if (file) {
@@ -17,7 +17,7 @@ export default function PreviewImage ({ file }) {
 
   return (
     <div>
-      <img className='preview' src={preview} alt='preview' width='80px' height='80px' />
+      <img className='preview' src={file ? preview : '/src/assets/img/default-user.png'} alt='preview' width='80px' height='80px' />
     </div>
   )
 }

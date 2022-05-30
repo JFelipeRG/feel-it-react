@@ -3,6 +3,9 @@ import PreviewImage from '@components/PreviewImage/PreviewImage'
 
 import { Link } from 'react-router-dom'
 
+import { $$ } from '@utils/dom'
+import useUser from '@hooks/useUser'
+
 const validateForm = values => {
   const errors = {}
   const fileTypes = ['image/jpg', 'image/jpeg', 'image/png']
@@ -26,7 +29,24 @@ const validateForm = values => {
   return errors
 }
 
-export default function RegisterForm ({ handleBlur, handleSubmit, error }) {
+export default function RegisterForm () {
+  const { error, registerUser } = useUser()
+
+  const handleSubmit = (values) => {
+    registerUser({
+      name: values.name,
+      nick: values.nick,
+      passw: values.passw,
+      profileimg: values.file
+    })
+  }
+
+  const handleBlur = (target, index) => {
+    const label = $$('.label-form')
+    const i = index
+    target.value !== '' ? label[i].classList.add('noempty') : label[i].classList.remove('noempty')
+  }
+
   return (
     <div className='form-container'>
       <Formik

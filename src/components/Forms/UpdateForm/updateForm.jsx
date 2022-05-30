@@ -22,7 +22,7 @@ const validateForm = values => {
 }
 
 export default function UpdateForm ({ onClose }) {
-  const { user, updateUser, error } = useUser()
+  const { user, updateUser, error, deleteImg } = useUser()
   const [image, setImage] = useState(async () => {
     const res = await fetch(`http://localhost:3002/api/user/img/${user.profile_img}`)
     const datos = await res.blob()
@@ -36,14 +36,22 @@ export default function UpdateForm ({ onClose }) {
     imageRef.current.value = null
   }
 
+  const deleteImage = () => {
+    setImage(null)
+    imageRef.current.value = null
+  }
+
   const handleSubmit = (values) => {
     updateUser({
-      id: user.id,
       name: values.name,
       nick: values.nick,
       profileimg: values.file,
       onClose
     })
+
+    if (!image) {
+      deleteImg()
+    }
   }
 
   return (
@@ -62,7 +70,11 @@ export default function UpdateForm ({ onClose }) {
         {({ values, setFieldValue }) => (
           <Form className='form'>
             <h2>Editar Perfil</h2>
+            <i className='close-window' onClick={onClose}>✖</i>
             <div className='input-container img'>
+              {image && user.profile_img !== 'default-user.png' && (
+                <button type='button' onClick={() => deleteImage(setFieldValue)}>Prueba</button>
+              )}
               {values.file && <button onClick={() => restartImage(setFieldValue)}>🔙</button>}
               <PreviewImage file={values.file || image} />
               <div className='input-file'>
@@ -86,13 +98,11 @@ export default function UpdateForm ({ onClose }) {
               <label className='label-form' htmlFor='user'>Nick</label>
               <ErrorMessage className='error' name='nick' component='span' />
             </div>
-            {console.log(error)}
             {
               error && <p className='error'>Nick ya registrado</p>
             }
             <div className='button-container'>
               <button className='btn primary' type='submit'>Guardar</button>
-              <button type='button' className='btn secondary' onClick={onClose}>Cancelar</button>
             </div>
           </Form>
         )}

@@ -122,6 +122,11 @@
   color: #742020;
 }
 
+.success {
+  font-size: 0.8em;
+  color: green;
+}
+
 .registro-link {
   position: absolute;
   left: 0;

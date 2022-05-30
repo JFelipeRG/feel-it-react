@@ -54,8 +54,8 @@ function ModalPost ({ onClose }) {
   return (
     <div className='blur-back'>
       <div ref={modalRef} className='new-post'>
+        <i className='close-window' onClick={onClose}>✖</i>
         <div className='info-post'>
-          <i onClick={onClose}>✖</i>
           <div>
             <textarea ref={textRef} placeholder='Exprésate...' maxLength='180' />
           </div>

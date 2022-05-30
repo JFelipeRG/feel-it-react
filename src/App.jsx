@@ -32,10 +32,12 @@ function App () {
 
             </div>
             <div className='explore-aside'>
-              <React.Suspense fallback={null}>
-                <Hotest />
-                <RecentSongs />
-              </React.Suspense>
+              <div>
+                <React.Suspense fallback={null}>
+                  <Hotest />
+                  <RecentSongs />
+                </React.Suspense>
+              </div>
             </div>
           </div>
         </>}

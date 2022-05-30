@@ -28,4 +28,14 @@ const search = async params => {
   return data
 }
 
-export { login, register, search, update, updatedUser }
+const removeImg = async params => {
+  const { data } = await axios.post(`${baseURL}/removeImg`, params)
+  return data
+}
+
+const changePassword = async params => {
+  const { data } = await axios.post(`${baseURL}/changePassw`, params)
+  return data
+}
+
+export { login, register, search, update, updatedUser, removeImg, changePassword }

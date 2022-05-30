@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { search } from '@services/user.services'
 
 export default function useProfile ({ nick }) {
@@ -16,5 +16,15 @@ export default function useProfile ({ nick }) {
       })
   }, [nick])
 
-  return { user, isLoading }
+  const updateUser = useCallback(({ nick }) => {
+    search({ nick })
+      .then(user => {
+        setUser(user)
+        setIsLoanding(false)
+      }).catch(err => {
+        console.log(err)
+      })
+  }, [])
+
+  return { user, isLoading, updateUser }
 }

@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState } from 'react'
 import Context from '@context/UserContext'
-import { login, register, search, update, updatedUser } from '@services/user.services'
+import { login, register, search, update, updatedUser, removeImg, changePassword } from '@services/user.services'
 import { useNavigate } from 'react-router-dom'
 
 export default function useUser () {
@@ -9,12 +9,15 @@ export default function useUser () {
   const [error, setError] = useState(false)
 
   const loginUser = useCallback(({ nick, passw }) => {
+    console.log({ nick, passw })
     login({ nick, passw })
       .then(user => {
+        console.log(user)
         window.localStorage.setItem('user', JSON.stringify(user))
         setError(false)
         setUser(user)
       }).catch(err => {
+        console.log(err)
         window.localStorage.removeItem('user')
         setError(true)
         console.log(err.message)
@@ -37,40 +40,71 @@ export default function useUser () {
       })
   }, [])
 
-  const updateUser = useCallback(({ id, name, nick, profileimg, onClose }) => {
-    console.log(onClose)
+  const updateUser = useCallback(({ name, nick, profileimg, onClose }) => {
     if (user.nick === nick) {
-      update({ id, name, nick, profileimg })
-        .then(() => {
-          updatedUser({ id })
-            .then(user => {
-              window.localStorage.setItem('user', JSON.stringify(user))
-              setUser(user)
-              setError(false)
-              onClose()
-              navigate(`/profile/${user.nick}`)
-            })
-        })
+      updateFunction({ name, nick, profileimg, onClose })
     } else {
       search({ nick })
         .then(user => {
           if (user) {
             setError(true)
           } else {
-            update({ id, name, nick, profileimg })
-              .then(() => {
-                updatedUser({ id })
-                  .then(user => {
-                    window.localStorage.setItem('user', JSON.stringify(user))
-                    setUser(user)
-                    setError(false)
-                    onClose()
-                    navigate(`/profile/${user.nick}`)
-                  })
-              })
+            updateFunction({ name, nick, profileimg, onClose })
           }
         })
     }
+  }, [])
+
+  const updateFunction = useCallback(({ name, nick, profileimg, onClose }) => {
+    const actualImage = user.profile_img
+    const id = user.id
+
+    update({ id, name, nick, actualImage, profileimg })
+      .then(() => {
+        updatedUser({ id })
+          .then(updatedUser => {
+            window.localStorage.setItem('user', JSON.stringify(updatedUser))
+            setUser(updatedUser)
+            setError(false)
+            onClose()
+            if (user.nick !== updatedUser.nick) navigate(`/profile/${updatedUser.nick}`)
+          })
+      })
+  }, [])
+
+  const deleteImg = useCallback(() => {
+    const id = user.id
+    const actualImage = user.profile_img
+
+    removeImg({ id, actualImage })
+      .then(() => {
+        updatedUser({ id })
+          .then(updatedUser => {
+            window.localStorage.setItem('user', JSON.stringify(updatedUser))
+            setUser(updatedUser)
+            setError(false)
+          })
+      })
+  }, [])
+
+  const newPassw = useCallback(({ passw, setSuccessful }) => {
+    const id = user.id
+    const actualPassw = user.passw
+
+    changePassword({ id, actualPassw, passw })
+      .then(() => {
+        updatedUser({ id })
+          .then(updatedUser => {
+            window.localStorage.setItem('user', JSON.stringify(updatedUser))
+            setUser(updatedUser)
+            setError(false)
+            setSuccessful(true)
+          })
+      })
+      .catch(() => {
+        setError(true)
+        setSuccessful(false)
+      })
   }, [])
 
   return {
@@ -80,6 +114,8 @@ export default function useUser () {
     logout,
     registerUser,
     updateUser,
+    deleteImg,
+    newPassw,
     error
   }
 }

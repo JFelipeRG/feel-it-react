@@ -4,14 +4,23 @@ import useProfile from '@hooks/useProfile'
 import Post from '@components/Posts/posts'
 import { useLocation } from 'react-router-dom'
 import useUser from '@hooks/useUser'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const EditProfilePortal = React.lazy(() => import('@components/Modals/EditProfile/editProfile'))
 
 export default function Profile () {
   const name = (useLocation().pathname).split('/')[2]
-  const { user, isLoading } = useProfile({ nick: name })
   const { user: actualUser } = useUser()
+  const { user, isLoading, updateUser } = useProfile({ nick: name })
+
+  useEffect(() => {
+    if (actualUser && user && actualUser.nick !== user.nick) {
+      updateUser({ nick: actualUser.nick })
+    } else {
+      updateUser({ nick: name })
+    }
+  }, [name, actualUser])
+
   const [showModal, setShowModal] = useState(false)
 
   if (isLoading) {

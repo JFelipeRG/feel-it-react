@@ -29,6 +29,7 @@ body {
 #modals {
   width: 0;
   height: 0;
+  z-index: 5;
 }
 
 /* Variables globales */

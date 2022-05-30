@@ -1,24 +1,23 @@
 import '../index.css'
 import '@styles/forms.styles.css'
-import './editProfile.css'
+import './changePassw.css'
 
 import ReactDOM from 'react-dom'
+import ChangePasswForm from '@components/Forms/ChangePasswForm/changePasswForm'
 
-import UpdateForm from '@components/Forms/UpdateForm/updateForm'
-
-function EditProfile ({ onClose }) {
+function ChangePassw ({ onClose }) {
   return (
     <div className='blur-back center'>
       <div className='edit-container'>
-        <UpdateForm onClose={onClose} />
+        <ChangePasswForm onClose={onClose} />
       </div>
     </div>
   )
 }
 
-export default function EditProfilePortal ({ onClose }) {
+export default function ChangePasswPortal ({ onClose }) {
   return ReactDOM.createPortal(
-    <EditProfile onClose={onClose} />,
+    <ChangePassw onClose={onClose} />,
     document.getElementById('modals')
   )
 }

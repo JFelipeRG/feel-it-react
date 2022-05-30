@@ -1,6 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 import { Link } from 'react-router-dom'
+import { $$ } from '@utils/dom'
+import useUser from '@hooks/useUser'
 
 const validateForm = values => {
   const errors = {}
@@ -10,7 +12,19 @@ const validateForm = values => {
   return errors
 }
 
-export default function LoginForm ({ handleBlur, handleSubmit, error }) {
+export default function LoginForm () {
+  const { loginUser, error } = useUser()
+
+  const handleSubmit = (values) => {
+    loginUser({ nick: values.nick, passw: values.passw })
+  }
+
+  const handleBlur = (target, index) => {
+    const label = $$('.label-form')
+    const i = index
+    target.value !== '' ? label[i].classList.add('noempty') : label[i].classList.remove('noempty')
+  }
+
   return (
     <div className='form-container'>
       <Formik

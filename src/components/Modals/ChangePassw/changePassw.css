@@ -1,0 +1,23 @@
+.edit-container {
+  color: black;
+  font-weight: bold;
+  font-size: 0.9em;
+  background-color: var(--green);
+  border-radius: 7px;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.edit-container .label-form {
+  top: -18px;
+}
+
+.edit-container .input-form:hover ~ .label-form,
+.edit-container .input-form:focus ~ .label-form {
+  transform: translateY(0);
+  font-size: 0.9em;
+  opacity: 10;
+}

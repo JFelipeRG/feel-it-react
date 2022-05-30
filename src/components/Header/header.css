@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 .menu {
-  width: 200px;
+  width: 250px;
   position: relative;
   overflow: hidden;
   font-size: 1.1em;
@@ -26,6 +26,8 @@
 .nav-bar {
   margin-top: 30px;
   flex: 1;
+  position: relative;
+  overflow: hidden;
 }
 
 .nav-bar a {
@@ -105,6 +107,7 @@
 }
 
 .user-info {
+  position: relative;
   margin-bottom: 20px;
   width: 100%;
   display: flex;
@@ -126,8 +129,9 @@
 
 .user-info svg {
   cursor: pointer;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2em;
+  height: 1.2em;
+  color: black;
 }
 
 .user-tags {
@@ -149,4 +153,40 @@
 .tag-nick {
   font-size: 0.9em;
   color: rgb(0 0 0 / 80%);
+}
+
+.user-menu {
+  width: 250px;
+  height: 80px;
+  overflow: hidden;
+  background-color: grey;
+  position: absolute;
+  bottom: -70px;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  z-index: 2;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.user-menu.active {
+  bottom: 0;
+}
+
+.user-menu-options {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 0.9em;
+}
+
+.user-menu-options:hover {
+  background-color: white;
+}
+
+.user-menu-options svg {
+  width: 20px;
+  height: 20px;
+  margin-left: 7px;
 }
