@@ -44,12 +44,24 @@ const ToggleMenu = ({ onClose, onClickLog, onClickPassw }) => {
     coverWindow.classList.remove('active')
   })
 
+  const handleClickPassw = () => {
+    onClickPassw()
+    onClose()
+    coverWindow.classList.remove('active')
+  }
+
+  const handleClickLog = () => {
+    onClickLog()
+    onClose()
+    coverWindow.classList.remove('active')
+  }
+
   return (
     <div ref={divRef} className='user-menu'>
-      <div className='user-menu-options' onClick={onClickPassw}>
+      <div className='user-menu-options' onClick={handleClickPassw}>
         <span>Cambiar contraseña</span>
       </div>
-      <div className='user-menu-options' onClick={onClickLog}>
+      <div className='user-menu-options' onClick={handleClickLog}>
         <span>Cerrar Sesión </span><LogOutIcon />
       </div>
 
@@ -75,6 +87,7 @@ export default function Header () {
 
   const handleClickLogOut = () => {
     setShowModalLogOut(true)
+    setShowModalMenu(false)
   }
 
   const handleCloseLogOut = () => {
@@ -91,6 +104,7 @@ export default function Header () {
 
   const handleClickChangePassw = () => {
     setShowModalChangePassw(true)
+    setShowModalMenu(false)
   }
 
   const handleCloseChangePassw = () => {

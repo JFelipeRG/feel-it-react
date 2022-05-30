@@ -8,7 +8,10 @@
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  position: relative;
+}
+
+.edit-container form {
+  min-height: 200px;
 }
 
 .edit-container .label-form {

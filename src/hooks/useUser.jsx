@@ -87,18 +87,20 @@ export default function useUser () {
       })
   }, [])
 
-  const newPassw = useCallback(({ passw, setSuccessful }) => {
+  const newPassw = useCallback(({ passw, actualPassw, setSuccessful, formRef }) => {
     const id = user.id
-    const actualPassw = user.passw
 
+    console.log({ passw, actualPassw })
     changePassword({ id, actualPassw, passw })
       .then(() => {
         updatedUser({ id })
           .then(updatedUser => {
+            console.log(updatedUser)
             window.localStorage.setItem('user', JSON.stringify(updatedUser))
             setUser(updatedUser)
             setError(false)
             setSuccessful(true)
+            formRef.current.reset()
           })
       })
       .catch(() => {
