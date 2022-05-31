@@ -1,6 +1,6 @@
 .post {
   width: 500px;
-  border-bottom: 3px solid var(--orange);
+  border-bottom: 3px solid var(--error-color);
   padding: 7px 10px;
   position: relative;
 }

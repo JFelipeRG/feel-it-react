@@ -114,11 +114,13 @@ export default function Header () {
   return (
     <>
       <aside className='menu'>
-        <Link to='/home'>
-          <div className='logo-app'>
-            <img src='/src/assets/SVG/logo.svg' alt='' />
-          </div>
-        </Link>
+
+        <div className='logo-app'>
+          <Link to='/home'>
+            <p>Feel It</p>
+          </Link>
+        </div>
+
         <nav className='nav-bar'>
           <ItemNav to='/home' label='Home' item={<HomeIcon />} />
           <ItemNav to={'profile/' + user.nick} label='Profile' item={<ProfileIcon />} />

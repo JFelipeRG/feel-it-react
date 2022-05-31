@@ -1,5 +1,6 @@
 .search-container {
   position: relative;
+  padding: 10px 0;
 }
 
 .autocomplete {
@@ -21,7 +22,7 @@
   background: white;
   border: none;
   border-radius: 7px;
-  height: 20px;
+  height: 30px;
   outline: none;
   padding: 0 10px;
   font-size: 0.9em;
@@ -32,7 +33,7 @@
   display: flex;
   align-items: center;
   text-align: left;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 .song-info-search:hover {

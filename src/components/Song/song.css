@@ -1,7 +1,7 @@
 .song-info {
   margin: 5px auto 0;
   padding: 7px;
-  background-color: var(--yellow);
+  background-color: var(--contrast-color);
   border-radius: 7px;
   width: 450px;
   height: 80px;
@@ -30,7 +30,7 @@
 }
 
 .song-info .tag-info p:last-child {
-  color: grey;
+  color: white;
   font-size: 0.9em;
   font-weight: normal;
 }

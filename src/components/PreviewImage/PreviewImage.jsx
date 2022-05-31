@@ -17,7 +17,7 @@ export default function PreviewImage ({ file }) {
 
   return (
     <div>
-      <img className='preview' src={file ? preview : '/src/assets/img/default-user.png'} alt='preview' width='80px' height='80px' />
+      <img className='preview' src={file ? preview : '/src/assets/img/default-user.png'} alt='preview' width='100px' height='100px' />
     </div>
   )
 }

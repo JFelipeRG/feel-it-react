@@ -1,6 +1,5 @@
 import '../index.css'
 import '@styles/forms.styles.css'
-import './editProfile.css'
 
 import ReactDOM from 'react-dom'
 
@@ -9,7 +8,7 @@ import UpdateForm from '@components/Forms/UpdateForm/updateForm'
 function EditProfile ({ onClose }) {
   return (
     <div className='blur-back center'>
-      <div className='edit-container'>
+      <div className='modal-container'>
         <UpdateForm onClose={onClose} />
       </div>
     </div>

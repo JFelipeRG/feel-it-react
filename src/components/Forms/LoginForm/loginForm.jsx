@@ -36,7 +36,7 @@ export default function LoginForm () {
       onSubmit={handleSubmit}
     >
       <Form className='form'>
-        <i className='close-window' onClick={() => navigate('/welcome')}>X</i>
+        <i className='close-window' onClick={() => navigate('/welcome')}>✖</i>
         <h2>Login</h2>
         <div className='form-inputs'>
           <div className='input-container'>
@@ -50,7 +50,7 @@ export default function LoginForm () {
             <ErrorMessage className='error' name='passw' component='span' />
           </div>
           {error && <p className='error'>El usuario o la contraseña no son válidos</p>}
-          <button className='btn primary' type='submit'>Login</button>
+          <button className='btn primary' type='submit'><span>Login</span></button>
         </div>
         <div className='registro-link'>
           <span>

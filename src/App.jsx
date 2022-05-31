@@ -1,6 +1,6 @@
 import './App.css'
 
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
 import useUser from '@hooks/useUser'
 import React, { useEffect } from 'react'
@@ -10,12 +10,11 @@ const Hotest = React.lazy(() => import('@components/Explore/PopularSongs/popular
 const RecentSongs = React.lazy(() => import('@components/Explore/RecentSongs/recentSongs'))
 
 function App () {
-  const location = useLocation().pathname
   const navigate = useNavigate()
   const { isLogged } = useUser()
 
   useEffect(() => {
-    if (location === '/') navigate(isLogged ? '/home' : '/welcome')
+    navigate(isLogged ? '/home' : '/welcome')
   }, [isLogged])
 
   return (

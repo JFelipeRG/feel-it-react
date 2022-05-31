@@ -51,10 +51,17 @@ function ModalPost ({ onClose }) {
     setError(false)
   }
 
+  const closeModal = () => {
+    modalRef.current.classList.remove('visible')
+    setTimeout(() => {
+      onClose()
+    }, 500)
+  }
+
   return (
     <div className='blur-back'>
-      <div ref={modalRef} className='new-post'>
-        <i className='close-window' onClick={onClose}>✖</i>
+      <div ref={modalRef} className='modal-container slice'>
+        <i className='close-window' onClick={closeModal}>✖</i>
         <div className='info-post'>
           <div>
             <textarea ref={textRef} placeholder='Exprésate...' maxLength='180' />
@@ -74,7 +81,7 @@ function ModalPost ({ onClose }) {
               error && <span className='error'>Seleccione una canción por favor</span>
             }
           </div>
-          <button onClick={handleClick} className='btn'>Postear</button>
+          <button onClick={handleClick} className='btn secondary'><span>Postear</span></button>
         </div>
       </div>
     </div>

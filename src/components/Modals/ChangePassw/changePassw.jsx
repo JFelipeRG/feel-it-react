@@ -1,6 +1,5 @@
-import '../index.css'
 import '@styles/forms.styles.css'
-import './changePassw.css'
+import '../index.css'
 
 import ReactDOM from 'react-dom'
 import ChangePasswForm from '@components/Forms/ChangePasswForm/changePasswForm'
@@ -8,7 +7,7 @@ import ChangePasswForm from '@components/Forms/ChangePasswForm/changePasswForm'
 function ChangePassw ({ onClose }) {
   return (
     <div className='blur-back center'>
-      <div className='edit-container'>
+      <div className='modal-container'>
         <ChangePasswForm onClose={onClose} />
       </div>
     </div>

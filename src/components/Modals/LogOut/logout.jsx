@@ -1,5 +1,4 @@
 import '../index.css'
-import './logout.css'
 
 import ReactDOM from 'react-dom'
 
@@ -15,12 +14,12 @@ function LogOut ({ onClose }) {
 
   return (
     <div className='blur-back center'>
-      <div className='option-container'>
-        <div>
+      <div className='modal-container'>
+        <div className='confirm-action'>
           <p>¿Estas seguro de que deseas cerrar sesión?</p>
           <div className='links-options'>
-            <Link className='links' to='/welcome' onClick={handleClick}>Cerrar Sesión</Link>
-            <button className='links' onClick={onClose}>Cancelar</button>
+            <Link className='links btn primary' to='/welcome' onClick={handleClick}><span>Cerrar Sesión</span></Link>
+            <button className='links btn secondary' onClick={onClose}><span>Cancelar</span></button>
           </div>
         </div>
       </div>

@@ -62,12 +62,12 @@ export default function RegisterForm () {
     >
       {({ values, setFieldValue }) => (
         <Form className='form'>
-          <i className='close-window' onClick={() => navigate('/welcome')}>X</i>
+          <i className='close-window' onClick={() => navigate('/welcome')}>✖</i>
           <h2>Registro</h2>
           <div className='input-container img'>
             <PreviewImage file={values.file} />
             <div className='input-file'>
-              <label htmlFor='file' className='btn primary input-file-btn'>Seleccionar</label>
+              <label htmlFor='file' className='btn secondary input-file-btn'><span>Seleccionar</span></label>
               <input
                 id='file' type='file' onChange={(e) => {
                   setFieldValue('file', e.target.files[0])
@@ -97,9 +97,7 @@ export default function RegisterForm () {
             <ErrorMessage className='error' name='passw2' component='span' />
           </div>
           {error && <p className='error'>El usario ya registrado</p>}
-          <div className='button-container'>
-            <button className='btn primary' type='submit'>Registrarse</button>
-          </div>
+          <button className='btn primary' type='submit'><span>Registrarse</span></button>
         </Form>
       )}
     </Formik>

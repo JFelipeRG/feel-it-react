@@ -78,7 +78,7 @@ export default function UpdateForm ({ onClose }) {
               {values.file && <button onClick={() => restartImage(setFieldValue)}>🔙</button>}
               <PreviewImage file={values.file || image} />
               <div className='input-file'>
-                <label htmlFor='file' className='btn primary input-file-btn'>Seleccionar</label>
+                <label htmlFor='file' className='btn secondary input-file-btn'><span>Seleccionar</span></label>
                 <input
                   ref={imageRef}
                   id='file' type='file' onChange={(e) => {
@@ -101,9 +101,7 @@ export default function UpdateForm ({ onClose }) {
             {
               error && <p className='error'>Nick ya registrado</p>
             }
-            <div className='button-container'>
-              <button className='btn primary' type='submit'>Guardar</button>
-            </div>
+            <button className='btn primary' type='submit'><span>Guardar</span></button>
           </Form>
         )}
       </Formik>

@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom'
 
-import './removePost.css'
 import '../index.css'
 import usePosts from '@hooks/usePosts'
 
@@ -14,12 +13,12 @@ function RemovePost ({ onClose, idPost, idSong }) {
 
   return (
     <div className='blur-back center'>
-      <div className='remove-container'>
-        <div>
+      <div className='modal-container'>
+        <div className='confirm-action'>
           <p>Estas Seguro de que quiere eliminar el post?</p>
           <div className='links-options'>
-            <button className='links' onClick={handleClick}>Borrar</button>
-            <button className='links' to='#' onClick={onClose}>Cancelar</button>
+            <button className='links btn primary' onClick={handleClick}><span>Borrar</span></button>
+            <button className='links btn secondary' to='#' onClick={onClose}><span>Cancelar</span></button>
           </div>
         </div>
       </div>

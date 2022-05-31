@@ -74,9 +74,7 @@ export default function ChangePasswForm ({ onClose }) {
           </div>
           {error && <p className='error'>La nueva contraseña no puede ser la misma que la actual</p>}
 
-          <div className='button-container'>
-            <button className='btn primary' type='submit'>Registrarse</button>
-          </div>
+          <button className='btn primary' type='submit'><span>Guardar</span></button>
         </Form>
       </Formik>
       {successful && <SuccessfulDiv onClose={() => setSuccessful(false)} />}
