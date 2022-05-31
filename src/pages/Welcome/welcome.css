@@ -1,0 +1,116 @@
+.welcome-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.background-welcome {
+  width: 50%;
+  height: 100%;
+  background: url("src/assets/img/back.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.welcome-info {
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(110deg, var(--contrast-color), var(--background-dark-color));
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  text-align: center;
+  letter-spacing: 1.5px;
+  padding: 0 10%;
+}
+
+.welcome-title h1 {
+  text-align: left;
+  font-size: 5rem;
+  letter-spacing: 3px;
+}
+
+.welcome-links {
+  width: 100%;
+  flex: 1;
+}
+
+.welcome-button {
+  width: 100%;
+  min-height: 10%;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.welcome-button:first-child > p {
+  font-size: 2rem;
+}
+
+.welcome-button .btn {
+  width: 200px;
+  height: 40px;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-button .btn span {
+  background-color: transparent;
+  position: absolute;
+  z-index: 1;
+}
+
+.welcome-button .btn::before {
+  content: "";
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 1s ease-in-out;
+}
+
+.welcome-button .btn:hover::before {
+  width: 100%;
+}
+
+.welcome-button .btn.primary {
+  background-color: transparent;
+  border: 3px solid var(--primary-button);
+  transition: all 0.4s;
+}
+
+.welcome-button .btn.primary::before {
+  background-color: var(--primary-button);
+}
+
+.welcome-button .btn.secondary {
+  background-color: transparent;
+  border: 3px solid var(--secondary-button);
+}
+
+.welcome-button .btn.secondary::before {
+  background-color: var(--secondary-button);
+}
+
+.welcome-page footer {
+  background: linear-gradient(270deg, var(--contrast-color), black);
+  padding: 5px 10px;
+  text-align: right;
+}

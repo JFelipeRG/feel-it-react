@@ -19,7 +19,7 @@ function LogOut ({ onClose }) {
         <div>
           <p>¿Estas seguro de que deseas cerrar sesión?</p>
           <div className='links-options'>
-            <Link className='links' to='/login' onClick={handleClick}>Cerrar Sesión</Link>
+            <Link className='links' to='/welcome' onClick={handleClick}>Cerrar Sesión</Link>
             <button className='links' onClick={onClose}>Cancelar</button>
           </div>
         </div>

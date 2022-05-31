@@ -24,7 +24,6 @@ export default function usePosts () {
   }, [])
 
   const removePost = useCallback(({ id, song }) => {
-    console.log(id)
     remove({ id })
       .then(() => {
         removecompartida({ id: song })

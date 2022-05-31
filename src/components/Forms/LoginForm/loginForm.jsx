@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { $$ } from '@utils/dom'
 import useUser from '@hooks/useUser'
 
@@ -13,6 +13,7 @@ const validateForm = values => {
 }
 
 export default function LoginForm () {
+  const navigate = useNavigate()
   const { loginUser, error } = useUser()
 
   const handleSubmit = (values) => {
@@ -26,38 +27,37 @@ export default function LoginForm () {
   }
 
   return (
-    <div className='form-container'>
-      <Formik
-        initialValues={{
-          nick: '',
-          passw: ''
-        }}
-        validate={validateForm}
-        onSubmit={handleSubmit}
-      >
-        <Form className='form'>
-          <h2>Login</h2>
-          <div className='form-inputs'>
-            <div className='input-container'>
-              <Field className='input-form' type='text' name='nick' onBlur={({ target }) => handleBlur(target, 0)} />
-              <label className='label-form' htmlFor='nick'>Nick</label>
-              <ErrorMessage className='error' name='nick' component='span' />
-            </div>
-            <div className='input-container'>
-              <Field className='input-form' type='password' name='passw' onBlur={({ target }) => handleBlur(target, 1)} />
-              <label className='label-form' htmlFor='passw'>Password</label>
-              <ErrorMessage className='error' name='passw' component='span' />
-            </div>
-            {error && <p className='error'>El usuario o la contraseña no son válidos</p>}
-            <button className='btn primary' type='submit'>Login</button>
+    <Formik
+      initialValues={{
+        nick: '',
+        passw: ''
+      }}
+      validate={validateForm}
+      onSubmit={handleSubmit}
+    >
+      <Form className='form'>
+        <i className='close-window' onClick={() => navigate('/welcome')}>X</i>
+        <h2>Login</h2>
+        <div className='form-inputs'>
+          <div className='input-container'>
+            <Field className='input-form' type='text' name='nick' onBlur={({ target }) => handleBlur(target, 0)} />
+            <label className='label-form' htmlFor='nick'>Nick</label>
+            <ErrorMessage className='error' name='nick' component='span' />
           </div>
-          <div className='registro-link'>
-            <span>
-              No estas Registrado?  <Link to='/singUp'>Registrarse</Link>
-            </span>
+          <div className='input-container'>
+            <Field className='input-form' type='password' name='passw' onBlur={({ target }) => handleBlur(target, 1)} />
+            <label className='label-form' htmlFor='passw'>Password</label>
+            <ErrorMessage className='error' name='passw' component='span' />
           </div>
-        </Form>
-      </Formik>
-    </div>
+          {error && <p className='error'>El usuario o la contraseña no son válidos</p>}
+          <button className='btn primary' type='submit'>Login</button>
+        </div>
+        <div className='registro-link'>
+          <span>
+            No estas Registrado?  <Link to='/i/singUp'>Registrarse</Link>
+          </span>
+        </div>
+      </Form>
+    </Formik>
   )
 }

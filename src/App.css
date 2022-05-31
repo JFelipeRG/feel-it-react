@@ -5,7 +5,7 @@
 }
 
 .app-header {
-  background-color: var(--green);
+  background-color: var(--background-dark-color);
   width: 25%;
   display: flex;
   justify-content: flex-end;
@@ -35,23 +35,22 @@
   transition: all 0.3s;
   letter-spacing: 1px;
   border: none;
-  border-radius: 10px;
-  height: 30px;
-  font-size: 0.9em;
-  width: fit-content;
+  border-radius: 25px;
+  font-size: 1em;
+  width: 150px;
   margin: 7px 10px 0;
-  padding: 0 10px;
+  padding: 7px;
   cursor: pointer;
 }
 
 .btn.primary {
-  color: white;
-  background-color: var(--orange);
+  color: var(--background-light-color);
+  background-color: var(--primary-button);
 }
 
 .btn.secondary {
   color: black;
-  background-color: var(--yellow);
+  background-color: var(--secondary-button);
 }
 
 .close-window {

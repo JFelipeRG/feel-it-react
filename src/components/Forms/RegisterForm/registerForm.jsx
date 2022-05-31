@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import PreviewImage from '@components/PreviewImage/PreviewImage'
 
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { $$ } from '@utils/dom'
 import useUser from '@hooks/useUser'
@@ -30,6 +30,7 @@ const validateForm = values => {
 }
 
 export default function RegisterForm () {
+  const navigate = useNavigate()
   const { error, registerUser } = useUser()
 
   const handleSubmit = (values) => {
@@ -48,63 +49,59 @@ export default function RegisterForm () {
   }
 
   return (
-    <div className='form-container'>
-      <Formik
-        initialValues={{
-          file: '',
-          name: '',
-          nick: '',
-          passw: '',
-          passw2: ''
-        }}
-        validate={validateForm}
-        onSubmit={handleSubmit}
-      >
-        {({ values, setFieldValue }) => (
-          <Form className='form'>
-            <h2>Registro</h2>
-            <div className='input-container img'>
-              <PreviewImage file={values.file} />
-              <div className='input-file'>
-                <label htmlFor='file' className='btn primary input-file-btn'>Seleccionar</label>
-                <input
-                  id='file' type='file' onChange={(e) => {
-                    setFieldValue('file', e.target.files[0])
-                  }}
-                />
-              </div>
+    <Formik
+      initialValues={{
+        file: '',
+        name: '',
+        nick: '',
+        passw: '',
+        passw2: ''
+      }}
+      validate={validateForm}
+      onSubmit={handleSubmit}
+    >
+      {({ values, setFieldValue }) => (
+        <Form className='form'>
+          <i className='close-window' onClick={() => navigate('/welcome')}>X</i>
+          <h2>Registro</h2>
+          <div className='input-container img'>
+            <PreviewImage file={values.file} />
+            <div className='input-file'>
+              <label htmlFor='file' className='btn primary input-file-btn'>Seleccionar</label>
+              <input
+                id='file' type='file' onChange={(e) => {
+                  setFieldValue('file', e.target.files[0])
+                }}
+              />
             </div>
-            <ErrorMessage className='error' name='file' component='span' />
-            <div className='input-container'>
-              <Field className='input-form' id='name' name='name' type='text' onBlur={({ target }) => handleBlur(target, 0)} />
-              <label className='label-form' htmlFor='user'>Name</label>
-              <ErrorMessage className='error' name='name' component='span' />
-            </div>
-            <div className='input-container'>
-              <Field className='input-form' id='nick' name='nick' type='text' onBlur={({ target }) => handleBlur(target, 1)} />
-              <label className='label-form' htmlFor='user'>Nick</label>
-              <ErrorMessage className='error' name='nick' component='span' />
-            </div>
-            <div className='input-container'>
-              <Field className='input-form' id='passw' name='passw' type='password' onBlur={({ target }) => handleBlur(target, 2)} />
-              <label className='label-form' htmlFor='passw'>Password</label>
-              <ErrorMessage className='error' name='passw' component='span' />
-            </div>
-            <div className='input-container'>
-              <Field className='input-form' id='passw2' name='passw2' type='password' onBlur={({ target }) => handleBlur(target, 3)} />
-              <label className='label-form' htmlFor='passw2'>Confirm Password</label>
-              <ErrorMessage className='error' name='passw2' component='span' />
-            </div>
-            {error && <p className='error'>El usario ya registrado</p>}
-            <div className='button-container'>
-              <button className='btn primary' type='submit'>Registrarse</button>
-              <Link to='/login'>
-                <button className='btn secondary'>Volver</button>
-              </Link>
-            </div>
-          </Form>
-        )}
-      </Formik>
-    </div>
+          </div>
+          <ErrorMessage className='error' name='file' component='span' />
+          <div className='input-container'>
+            <Field className='input-form' id='name' name='name' type='text' onBlur={({ target }) => handleBlur(target, 0)} />
+            <label className='label-form' htmlFor='user'>Name</label>
+            <ErrorMessage className='error' name='name' component='span' />
+          </div>
+          <div className='input-container'>
+            <Field className='input-form' id='nick' name='nick' type='text' onBlur={({ target }) => handleBlur(target, 1)} />
+            <label className='label-form' htmlFor='user'>Nick</label>
+            <ErrorMessage className='error' name='nick' component='span' />
+          </div>
+          <div className='input-container'>
+            <Field className='input-form' id='passw' name='passw' type='password' onBlur={({ target }) => handleBlur(target, 2)} />
+            <label className='label-form' htmlFor='passw'>Password</label>
+            <ErrorMessage className='error' name='passw' component='span' />
+          </div>
+          <div className='input-container'>
+            <Field className='input-form' id='passw2' name='passw2' type='password' onBlur={({ target }) => handleBlur(target, 3)} />
+            <label className='label-form' htmlFor='passw2'>Confirm Password</label>
+            <ErrorMessage className='error' name='passw2' component='span' />
+          </div>
+          {error && <p className='error'>El usario ya registrado</p>}
+          <div className='button-container'>
+            <button className='btn primary' type='submit'>Registrarse</button>
+          </div>
+        </Form>
+      )}
+    </Formik>
   )
 }

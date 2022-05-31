@@ -1,7 +1,3 @@
-/*
-  palette url: https://coolors.co/f04d3c-41afa7-fccb64-9fa8eb-f6d4d2
-*/
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,7 +18,6 @@
 body {
   height: 100vh;
   width: 100%;
-  display: grid;
   font-size: 1em;
 }
 
@@ -34,8 +29,12 @@ body {
 
 /* Variables globales */
 :root {
-  --green: #41afa7;
-  --orange: #ffa45f;
-  --yellow: #ffc85f;
-  --rose: #fb5d65;
+  --primary-button: #8990d8;
+  --secondary-button: #7fb1cf;
+  --contrast-color: #404376;
+  --grey-color: #495062;
+  --background-dark-color: #79c3ca;
+  --background-light-color: #d7f5f5;
+  --error-color: #742020;
+  --successful-color: #2b9d6e;
 }

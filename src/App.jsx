@@ -15,7 +15,7 @@ function App () {
   const { isLogged } = useUser()
 
   useEffect(() => {
-    if (location === '/') navigate(isLogged ? '/home' : '/login')
+    if (location === '/') navigate(isLogged ? '/home' : '/welcome')
   }, [isLogged])
 
   return (
