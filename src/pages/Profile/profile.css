@@ -1,7 +1,8 @@
 .body-profile {
   height: 100%;
   width: 100%;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-user {
@@ -32,6 +33,7 @@
 
 .profile-posts {
   overflow: auto;
+  margin-top: 7px;
   padding: 0 7px;
   width: 100%;
   display: flex;
@@ -40,5 +42,14 @@
 }
 
 .profile-posts::-webkit-scrollbar {
-  display: none;
+  appearance: none;
+}
+
+.profile-posts::-webkit-scrollbar:vertical {
+  width: 6px;
+}
+
+.profile-posts::-webkit-scrollbar-thumb {
+  background-color: var(--contrast-color);
+  border-radius: 7px;
 }

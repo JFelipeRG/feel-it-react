@@ -9,10 +9,8 @@ export default function useUser () {
   const [error, setError] = useState(false)
 
   const loginUser = useCallback(({ nick, passw }) => {
-    console.log({ nick, passw })
     login({ nick, passw })
       .then(user => {
-        console.log(user)
         window.localStorage.setItem('user', JSON.stringify(user))
         setError(false)
         setUser(user)
