@@ -15,8 +15,12 @@
 .app-body {
   height: 100%;
   background-color: var(--complementary-color);
-  padding: 5px;
+  padding: 10px;
   display: flex;
+}
+
+.body-main-content {
+  padding-right: 10px;
 }
 
 .explore-aside {
@@ -25,7 +29,6 @@
   width: 40%;
   height: 100%;
   background-color: var(--complementary-color);
-  padding: 20px 0;
   overflow: auto;
 }
 

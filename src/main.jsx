@@ -13,9 +13,9 @@ const Welcome = React.lazy(() => import('@pages/Welcome/welcome'))
 const Home = React.lazy(() => import('@pages/Home/home'))
 const Profile = React.lazy(() => import('@pages/Profile/profile'))
 
-const Logs = React.lazy(() => import('@pages/Logs/index'))
-const LogIn = React.lazy(() => import('@pages/Logs/Login/login'))
-const SingUp = React.lazy(() => import('@pages/Logs/SingUp/singup'))
+const Logs = React.lazy(() => import('@pages/LogsPages/index'))
+const LogIn = React.lazy(() => import('@pages/LogsPages/Login/login'))
+const SingUp = React.lazy(() => import('@pages/LogsPages/SingUp/singup'))
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
