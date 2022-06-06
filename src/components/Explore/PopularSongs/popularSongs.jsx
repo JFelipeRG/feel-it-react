@@ -12,8 +12,8 @@ export default function HotestSongs () {
   if (songs) {
     return (
       <div className='explore-menu'>
-        <h1>Popular</h1>
-        <span>(6 most shared songs)</span>
+        <h2>Popular</h2>
+        <span>(6 canciones más compartidas)</span>
         <div>
           {songs.map(song => {
             return <SongMinimal key={song.id} {...song} />

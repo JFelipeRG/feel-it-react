@@ -41,16 +41,15 @@
 
 .label-form {
   position: absolute;
-  font-size: 1em;
   left: 10px;
   top: 10px;
   transition: all 0.3s ease-out;
   pointer-events: none;
 }
 
+.input-form:not([value=""]) ~ .label-form,
 .input-form:focus ~ .label-form,
-.input-form:hover ~ .label-form,
-.label-form.noempty {
+.input-form:hover ~ .label-form {
   transform: translateY(-18px) translateX(0);
   opacity: 0.6;
   font-size: 0.75em;
@@ -60,7 +59,6 @@
   width: 100%;
   border: none;
   padding: 10px 0;
-  font-size: 1em;
   color: white;
   border-bottom: 2px solid white;
   background-color: transparent;
@@ -82,10 +80,10 @@
 }
 
 .input-file::before {
-  font-size: 0.8em;
   content: ".jpg, .png, .jpeg";
+  font-weight: 300;
   position: absolute;
-  bottom: -15px;
+  bottom: -17px;
   width: 100%;
 }
 
@@ -107,19 +105,18 @@
 }
 
 .error {
-  font-size: 1em;
   font-weight: 500;
   color: var(--error-color);
 }
 
 .success {
-  font-size: 0.8em;
   color: white;
-  width: 200px;
+  width: fit-content;
+  height: 40px;
   margin: 0 auto;
   background-color: var(--successful-color);
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
   position: absolute;
   top: -40px;
   left: 0;
@@ -128,7 +125,7 @@
 }
 
 .success.active {
-  top: 20px;
+  top: 10px;
 }
 
 .registro-link {
@@ -147,4 +144,20 @@
   text-decoration: none;
   font-weight: 600;
   color: var(--background-dark-color);
+}
+
+.delete-image-button,
+.back-image-button {
+  position: absolute;
+  top: 0;
+  left: -25px;
+  cursor: pointer;
+  color: var(--error-color);
+  stroke-width: 1.5;
+}
+
+.delete-image-button svg,
+.back-image-button svg {
+  width: 25px;
+  height: 25px;
 }

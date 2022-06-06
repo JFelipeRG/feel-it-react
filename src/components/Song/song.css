@@ -1,10 +1,10 @@
 .song-info {
   margin: 5px auto 0;
   padding: 7px;
-  background-color: var(--contrast-color);
+  background: linear-gradient(180deg, var(--error-color) 60%, var(--primary-button) 200%);
   border-radius: 7px;
-  width: 450px;
-  height: 80px;
+  min-width: 200px;
+  height: 85px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +12,7 @@
 }
 
 .song-info .img {
-  width: 70px;
+  width: 75px;
   height: 100%;
 }
 
@@ -20,18 +20,17 @@
   width: 100%;
   height: 100%;
   border-radius: 7px;
+  border: 2px solid white;
 }
 
 .song-info .tag-info {
   text-align: left;
   margin-left: 7px;
-  font-size: 1.1em;
   flex: 1;
 }
 
 .song-info .tag-info p:last-child {
   color: white;
-  font-size: 0.9em;
   font-weight: normal;
 }
 

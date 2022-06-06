@@ -5,26 +5,32 @@
 }
 
 .app-header {
-  background: linear-gradient(50deg, var(--grey-color), var(--contrast-color));
-  width: 25%;
+  background: linear-gradient(270deg, var(--contrast-color) 40%, var(--background-dark-color) 160%);
+  height: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  padding: 10px;
 }
 
 .app-body {
-  width: 50%;
-  background-color: white;
+  height: 100%;
+  background-color: var(--complementary-color);
+  padding: 5px;
+  display: flex;
 }
 
 .explore-aside {
-  width: 25%;
-  background-color: white;
-  padding: 5px 10px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40%;
+  height: 100%;
+  background-color: var(--complementary-color);
+  padding: 20px 0;
   overflow: auto;
 }
 
 .explore-aside > div {
-  width: 300px;
+  max-width: 430px;
 }
 
 .explore-aside::-webkit-scrollbar {
@@ -35,7 +41,6 @@
   transition: all 0.3s;
   letter-spacing: 1px;
   border-radius: 25px;
-  font-size: 1em;
   font-weight: 500;
   width: 150px;
   height: 40px;
@@ -93,7 +98,6 @@
   top: 5px;
   left: 10px;
   padding: 5px;
-  font-size: 1.1rem;
   cursor: pointer;
 }
 

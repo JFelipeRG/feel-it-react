@@ -3,8 +3,9 @@ import PreviewImage from '@components/PreviewImage/PreviewImage'
 
 import { useNavigate } from 'react-router-dom'
 
-import { $$ } from '@utils/dom'
 import useUser from '@hooks/useUser'
+import { useRef } from 'react'
+import BackIcon from '@components/Icons/backIcon'
 
 const validateForm = values => {
   const errors = {}
@@ -33,6 +34,13 @@ export default function RegisterForm () {
   const navigate = useNavigate()
   const { error, registerUser } = useUser()
 
+  const imageRef = useRef()
+
+  const restartImage = (setField) => {
+    setField('file', '')
+    imageRef.current.value = null
+  }
+
   const handleSubmit = (values) => {
     registerUser({
       name: values.name,
@@ -40,12 +48,6 @@ export default function RegisterForm () {
       passw: values.passw,
       profileimg: values.file
     })
-  }
-
-  const handleBlur = (target, index) => {
-    const label = $$('.label-form')
-    const i = index
-    target.value !== '' ? label[i].classList.add('noempty') : label[i].classList.remove('noempty')
   }
 
   return (
@@ -65,10 +67,12 @@ export default function RegisterForm () {
           <i className='close-window' onClick={() => navigate('/welcome')}>✖</i>
           <h2>Registro</h2>
           <div className='input-container img'>
+            {values.file && <span title='Deshacer' className='back-image-button' onClick={() => restartImage(setFieldValue)}><BackIcon /></span>}
             <PreviewImage file={values.file} />
             <div className='input-file'>
               <label htmlFor='file' className='btn secondary input-file-btn'><span>Seleccionar</span></label>
               <input
+                ref={imageRef}
                 id='file' type='file' onChange={(e) => {
                   setFieldValue('file', e.target.files[0])
                 }}
@@ -77,22 +81,22 @@ export default function RegisterForm () {
           </div>
           <ErrorMessage className='error' name='file' component='span' />
           <div className='input-container'>
-            <Field className='input-form' id='name' name='name' type='text' onBlur={({ target }) => handleBlur(target, 0)} />
+            <Field className='input-form' id='name' name='name' type='text' />
             <label className='label-form' htmlFor='user'>Name</label>
             <ErrorMessage className='error' name='name' component='span' />
           </div>
           <div className='input-container'>
-            <Field className='input-form' id='nick' name='nick' type='text' onBlur={({ target }) => handleBlur(target, 1)} />
+            <Field className='input-form' id='nick' name='nick' type='text' />
             <label className='label-form' htmlFor='user'>Nick</label>
             <ErrorMessage className='error' name='nick' component='span' />
           </div>
           <div className='input-container'>
-            <Field className='input-form' id='passw' name='passw' type='password' onBlur={({ target }) => handleBlur(target, 2)} />
+            <Field className='input-form' id='passw' name='passw' type='password' />
             <label className='label-form' htmlFor='passw'>Password</label>
             <ErrorMessage className='error' name='passw' component='span' />
           </div>
           <div className='input-container'>
-            <Field className='input-form' id='passw2' name='passw2' type='password' onBlur={({ target }) => handleBlur(target, 3)} />
+            <Field className='input-form' id='passw2' name='passw2' type='password' />
             <label className='label-form' htmlFor='passw2'>Confirm Password</label>
             <ErrorMessage className='error' name='passw2' component='span' />
           </div>

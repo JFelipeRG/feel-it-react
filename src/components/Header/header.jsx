@@ -12,6 +12,7 @@ import PostIcon from '@components/Icons/postIcon'
 import ProfileIcon from '@components/Icons/profileIcon'
 import LogOutIcon from '@components/Icons/logOutIcon'
 import EllipsisIcon from '@components/Icons/ellipsisIcon'
+import AudioWaveIcon from '@components/Icons/audioWaceIcon'
 
 const LogOut = React.lazy(() => import('@components/Modals/LogOut/logout'))
 const ModalPost = React.lazy(() => import('@components/Modals/NewPost/newpost'))
@@ -22,7 +23,7 @@ const ItemNav = ({ to, label, item }) => {
 
   return (
     <Link className={match && 'active'} to={to}>
-      <div>{item} {label}</div>
+      {item} <span className='navbar-text'>{label}</span>
     </Link>
   )
 }
@@ -117,14 +118,14 @@ export default function Header () {
 
         <div className='logo-app'>
           <Link to='/home'>
-            <p>Feel It</p>
+            <span className='navbar-text'>Feel It</span><AudioWaveIcon />
           </Link>
         </div>
 
         <nav className='nav-bar'>
           <ItemNav to='/home' label='Home' item={<HomeIcon />} />
-          <ItemNav to={'profile/' + user.nick} label='Profile' item={<ProfileIcon />} />
-          <button className='btn' type='button' onClick={handleClickPost}><PostIcon /> New Post</button>
+          <ItemNav to={'profile/' + user.nick} label='Perfil' item={<ProfileIcon />} />
+          <button className='btn' type='button' onClick={handleClickPost}><PostIcon /> <p className='navbar-text'>New Post</p></button>
           {
           showModalMenu && (
             <ToggleMenu onClose={() => handleCloseMenu()} onClickPassw={handleClickChangePassw} onClickLog={() => handleClickLogOut()} />
@@ -135,11 +136,15 @@ export default function Header () {
           <div className='user-image'>
             <img src={urlImg} alt='user image' />
           </div>
-          <div className='user-tags'>
-            <span className='tag-name'><b>{user.name}</b></span>
-            <span className='tag-nick'>@{user.nick}</span>
+          <div className='navbar-text'>
+            <div>
+              <div className='user-tags'>
+                <span className='tag-name'><b>{user.name}</b></span>
+                <span className='tag-nick'>@{user.nick}</span>
+              </div>
+              <EllipsisIcon />
+            </div>
           </div>
-          <EllipsisIcon />
         </div>
       </aside>
       {

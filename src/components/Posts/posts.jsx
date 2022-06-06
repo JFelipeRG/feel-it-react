@@ -1,3 +1,5 @@
+import './posts.css'
+
 import EllipsisIcon from '@components/Icons/ellipsisIcon'
 import TrashIcon from '@components/Icons/trashIcon'
 import Song from '@components/Song/song'
@@ -5,7 +7,9 @@ import useUser from '@hooks/useUser'
 import { getDiffTime } from '@utils/dates'
 import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import './posts.css'
+
+import YT from '@assets/SVG/youtube.svg'
+import Spotify from '@assets/SVG/spotify.svg'
 
 import { $ } from '@utils/dom'
 
@@ -64,13 +68,19 @@ export default function Post (props) {
         </Link>
         <div>
           <Link to={'/profile/' + props.usuario.nick}>
-            <p><b>{props.usuario.name}</b> @{props.usuario.nick} · {diffTime}</p>
+            <p><b>{props.usuario.name}</b></p>
+            <p>@{props.usuario.nick}</p>
           </Link>
-          <p className='post-text'>{props.contenido}</p>
+          <p>{diffTime}</p>
         </div>
       </div>
       <div className='post-song'>
-        <Song {...props.cancion} />
+        <p className='post-text'>{props.contenido}</p>
+        <div className='post-song-info'>
+          <Song {...props.cancion} />
+          <a href={props.cancion.link_yt} target='_blank' rel='noreferrer'><img src={YT} alt='' width={40} /></a>
+          <a href={props.cancion.link_spoty} target='_blank' rel='noreferrer'><img src={Spotify} alt='' width={40} /></a>
+        </div>
       </div>
       {
         user.id === props.usuario.id && (

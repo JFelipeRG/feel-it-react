@@ -10,17 +10,17 @@ function getDiffTime (fecha) {
 
   else if (diff.as('days').toFixed() >= 7) return data.date() + ' ' + getMonthString(data.month()) + '.'
 
-  else if (diff.as('days').toFixed() > 0) return data.day() + 'd'
+  else if (diff.as('days').toFixed() > 0) return 'hace ' + data.day() + 'd'
 
-  else if (diff.as('hours').toFixed() > 0) return diff.as('hours').toFixed() + 'h'
+  else if (diff.as('hours').toFixed() > 0) return 'hace ' + diff.as('hours').toFixed() + 'h'
 
-  else if (diff.as('minutes').toFixed() > 0) return diff.as('minutes').toFixed() + 'min'
+  else if (diff.as('minutes').toFixed() > 0) return 'hace ' + diff.as('minutes').toFixed() + 'min'
 
   else return diff.as('seconds').toFixed() + 's'
 }
 
 function getMonthString (index) {
-  const months = ['Enero', 'Feb', 'Marzo', 'Abril', 'Mayo', 'Jun', 'Jul', 'Agosto', 'Sep', 'Oct', 'Nov', 'Dic']
+  const months = ['En', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
 
   return months[index]
 }

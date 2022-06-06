@@ -12,8 +12,8 @@ export default function RecentSongs () {
   if (songs) {
     return (
       <div className='explore-menu'>
-        <h1>Recent</h1>
-        <p>(6 recently uploaded songs)</p>
+        <h2>Nuevo</h2>
+        <p>(6 canciones añadidas recientemente)</p>
         <div>
           {songs.map(song => {
             return <SongMinimal key={song.id} {...song} />

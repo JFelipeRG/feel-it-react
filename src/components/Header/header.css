@@ -1,9 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 .menu {
-  width: 250px;
   position: relative;
-  overflow: hidden;
-  font-size: 1.1em;
   color: white;
 }
 
@@ -16,31 +13,37 @@
 .logo-app {
   width: 100%;
   height: 80px;
-  display: grid;
+  display: flex;
   align-items: center;
 }
 
 .logo-app a {
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-.logo-app p {
+.logo-app svg {
+  width: 55px;
+  height: 55px;
+  color: white;
+}
+
+.logo-app span {
   font-size: 2em;
   font-weight: bold;
-  color: white;
   letter-spacing: 3px;
+  color: white;
 }
 
 .nav-bar {
   margin-top: 30px;
   flex: 1;
   position: relative;
-  overflow: hidden;
 }
 
 .nav-bar a {
   padding: 10px 0;
-  font-size: 1.1em;
   text-align: center;
   text-decoration: none;
   color: white;
@@ -48,12 +51,16 @@
   height: 50px;
   width: 100%;
   letter-spacing: 0.6px;
+  gap: 7px;
 }
 
 .nav-bar a,
 .user-info {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-bar a:hover,
@@ -61,10 +68,6 @@
 .user-info:hover {
   color: black;
   background-color: white;
-}
-
-.nav-bar a:hover {
-  transform: translateX(20px);
 }
 
 .nav-bar a.active {
@@ -76,17 +79,9 @@
   transition: 0.4s;
 }
 
-.nav-bar a div {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
 .nav-bar svg {
   height: 25px;
   width: 25px;
-  margin-right: 7px;
 }
 
 .nav-bar button {
@@ -95,13 +90,12 @@
   height: 40px;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
+  margin: 30px auto;
   background-color: white;
-  font-size: 1em;
   color: var(--contrast-color);
   font-weight: bold;
   border: none;
-  transition: all 0.1s;
+  gap: 7px;
 }
 
 .nav-bar button:hover {
@@ -112,14 +106,12 @@
   position: relative;
   margin-bottom: 20px;
   width: 100%;
-  display: flex;
-  align-items: center;
   padding: 5px;
   cursor: pointer;
 }
 
 .user-info .user-image {
-  width: 60px;
+  width: 75px;
   margin-right: 7px;
 }
 
@@ -135,42 +127,41 @@
   height: 1.2em;
 }
 
+.navbar-text > div {
+  display: flex;
+  align-items: center;
+}
+
 .user-tags {
   display: flex;
   flex-direction: column;
-  font-size: 0.9em;
   flex: 1;
 }
 
-.tag-nick {
-  font-size: 0.9em;
-}
-
 .user-menu {
-  width: 250px;
-  height: 80px;
+  width: 200px;
   overflow: hidden;
-  background-color: var(--secondary-button);
+  background-color: var(--grey-color);
+  border: 2px solid var(--background-light-color);
   color: white;
   position: absolute;
   bottom: 0;
-  right: -250px;
+  left: 0;
   transition: all 0.3s ease-out;
   cursor: pointer;
   z-index: 2;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
+  opacity: 0;
 }
 
 .user-menu.active {
-  right: 0;
+  opacity: 1;
 }
 
 .user-menu-options {
   display: flex;
   align-items: center;
   padding: 10px;
-  font-size: 0.9em;
 }
 
 .user-menu-options:hover {

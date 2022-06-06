@@ -2,6 +2,9 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import PreviewImage from '@components/PreviewImage/PreviewImage'
 import useUser from '@hooks/useUser'
 
+import TrashIcon from '@components/Icons/trashIcon'
+import BackIcon from '@components/Icons/backIcon'
+
 import React, { useRef, useState } from 'react'
 
 const validateForm = values => {
@@ -72,10 +75,10 @@ export default function UpdateForm ({ onClose }) {
             <h2>Editar Perfil</h2>
             <i className='close-window' onClick={onClose}>✖</i>
             <div className='input-container img'>
-              {image && user.profile_img !== 'default-user.png' && (
-                <button type='button' onClick={() => deleteImage(setFieldValue)}>Prueba</button>
+              {image && user.profile_img !== 'default-user.png' && !values.file && (
+                <span title='Eliminar imagen' className='delete-image-button' onClick={() => deleteImage()}><TrashIcon /></span>
               )}
-              {values.file && <button onClick={() => restartImage(setFieldValue)}>🔙</button>}
+              {values.file && <span title='Deshacer' className='back-image-button' onClick={() => restartImage(setFieldValue)}><BackIcon /></span>}
               <PreviewImage file={values.file || image} />
               <div className='input-file'>
                 <label htmlFor='file' className='btn secondary input-file-btn'><span>Seleccionar</span></label>

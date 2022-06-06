@@ -1,29 +1,42 @@
 .body-profile {
-  display: flex;
   height: 100%;
   width: 100%;
+  padding: 10px;
 }
 
 .profile-user {
-  width: 20%;
+  background-color: var(--error-color);
+  border-radius: 7px;
+  position: relative;
+  width: 100%;
   height: fit-content;
-  border: 2px solid rgb(0 0 0 / 30%);
-  border-radius: 10px;
   padding: 10px;
-  margin: 7px;
   text-align: center;
 }
 
 .profile-user img {
   aspect-ratio: 1/1;
-  width: 100px;
+  width: 80px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.edit-icon {
+  color: white;
+  position: absolute;
+  top: 2px;
+  right: 40%;
+  stroke-width: 1.8;
+  cursor: pointer;
 }
 
 .profile-posts {
-  height: 100%;
   overflow: auto;
-  margin: 0 20px;
-  width: fit-content;
+  padding: 0 7px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-posts::-webkit-scrollbar {

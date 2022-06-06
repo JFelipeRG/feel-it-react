@@ -2,14 +2,9 @@ import './home.css'
 
 import usePosts from '@hooks/usePosts'
 import Post from '@components/Posts/posts'
-import { useEffect } from 'react'
 
 export default function Home () {
   const { posts, isLoading } = usePosts()
-
-  useEffect(() => {
-    console.log('posts', posts)
-  }, [posts])
 
   if (isLoading) {
     return (

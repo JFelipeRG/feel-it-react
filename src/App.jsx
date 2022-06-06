@@ -1,3 +1,4 @@
+import '@styles/breakpoint-1250px.css'
 import './App.css'
 
 import { Outlet, useNavigate } from 'react-router-dom'
@@ -27,11 +28,10 @@ function App () {
               <React.Suspense fallback={null}><Header /></React.Suspense>
             </div>
             <div className='app-body'>
-              <Outlet />
-
-            </div>
-            <div className='explore-aside'>
-              <div>
+              <div className='body-main-content'>
+                <Outlet />
+              </div>
+              <div className='explore-aside'>
                 <React.Suspense fallback={null}>
                   <Hotest />
                   <RecentSongs />

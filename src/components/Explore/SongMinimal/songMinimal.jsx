@@ -1,4 +1,4 @@
-import './songsminimal.css'
+import './songMinimal.css'
 
 import YT from '@assets/SVG/youtube.svg'
 import Spotify from '@assets/SVG/spotify.svg'

@@ -1,8 +1,15 @@
 .explore-menu {
   width: 100%;
+  background: linear-gradient(300deg, var(--contrast-color) 50%, var(--grey-color) 160%);
+  margin: 0 0 10px;
+  padding: 7px 20px;
+  border-radius: 7px;
+  color: white;
 }
 
 .explore-menu > div {
-  display: flex;
-  flex-wrap: wrap;
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
 }

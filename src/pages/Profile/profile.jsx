@@ -5,6 +5,7 @@ import Post from '@components/Posts/posts'
 import { useLocation } from 'react-router-dom'
 import useUser from '@hooks/useUser'
 import React, { useEffect, useState } from 'react'
+import EditPencilIcon from '@components/Icons/editPencilIcon'
 
 const EditProfilePortal = React.lazy(() => import('@components/Modals/EditProfile/editProfile'))
 
@@ -41,7 +42,7 @@ export default function Profile () {
           <p>Creada el: {fecha.toLocaleDateString()}</p>
           {
             actualUser.id === user.id && (
-              <button onClick={() => setShowModal(true)}>Editar Perfil</button>
+              <span title='Editar Perfil' className='edit-icon' onClick={() => setShowModal(true)}><EditPencilIcon /></span>
             )
           }
         </div>

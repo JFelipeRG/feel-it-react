@@ -1,0 +1,61 @@
+@media (max-width: 1020px) and (min-width: 450px) {
+  .app-header {
+    width: 100px;
+  }
+
+  .app-body {
+    width: 100%;
+  }
+
+  .navbar-text {
+    display: none;
+  }
+
+  .explore-aside {
+    display: none;
+  }
+
+  .body-main-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1275px) and (min-width: 1020px) {
+  .app-header {
+    width: 100px;
+  }
+
+  .app-body {
+    width: 100%;
+  }
+
+  .navbar-text {
+    display: none;
+  }
+
+  .explore-aside {
+    display: grid;
+  }
+
+  .body-main-content {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1275px) {
+  .app-header {
+    width: 20%;
+  }
+
+  .app-body {
+    width: 80%;
+  }
+
+  .explore-aside {
+    display: grid;
+  }
+
+  .body-main-content {
+    width: 60%;
+  }
+}

@@ -1,7 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 import { Link, useNavigate } from 'react-router-dom'
-import { $$ } from '@utils/dom'
 import useUser from '@hooks/useUser'
 
 const validateForm = values => {
@@ -20,12 +19,6 @@ export default function LoginForm () {
     loginUser({ nick: values.nick, passw: values.passw })
   }
 
-  const handleBlur = (target, index) => {
-    const label = $$('.label-form')
-    const i = index
-    target.value !== '' ? label[i].classList.add('noempty') : label[i].classList.remove('noempty')
-  }
-
   return (
     <Formik
       initialValues={{
@@ -40,12 +33,12 @@ export default function LoginForm () {
         <h2>Login</h2>
         <div className='form-inputs'>
           <div className='input-container'>
-            <Field className='input-form' type='text' name='nick' onBlur={({ target }) => handleBlur(target, 0)} />
+            <Field className='input-form' type='text' name='nick' />
             <label className='label-form' htmlFor='nick'>Nick</label>
             <ErrorMessage className='error' name='nick' component='span' />
           </div>
           <div className='input-container'>
-            <Field className='input-form' type='password' name='passw' onBlur={({ target }) => handleBlur(target, 1)} />
+            <Field className='input-form' type='password' name='passw' />
             <label className='label-form' htmlFor='passw'>Password</label>
             <ErrorMessage className='error' name='passw' component='span' />
           </div>
