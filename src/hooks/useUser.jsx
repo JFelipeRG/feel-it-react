@@ -31,7 +31,7 @@ export default function useUser () {
     register({ name, nick, passw, profileimg })
       .then(() => {
         setError(false)
-        navigate('/login')
+        navigate('/i/logIn')
       }).catch(err => {
         setError(true)
         console.log(err)

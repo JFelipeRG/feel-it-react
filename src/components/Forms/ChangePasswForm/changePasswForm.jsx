@@ -15,7 +15,7 @@ const validateForm = values => {
   return errors
 }
 
-const SuccessfulDiv = ({ removeSuccessModal }) => {
+const SuccessfulDiv = ({ removeSuccessModal, closeMainModal }) => {
   const divRef = useRef()
 
   useEffect(() => {
@@ -24,12 +24,9 @@ const SuccessfulDiv = ({ removeSuccessModal }) => {
     }, 50)
 
     setTimeout(() => {
-      divRef.current.classList.remove('active')
-    }, 2000)
-
-    setTimeout(() => {
       removeSuccessModal()
-    }, 2500)
+      closeMainModal()
+    }, 2300)
   }, [])
 
   return (
@@ -77,7 +74,7 @@ export default function ChangePasswForm ({ onClose }) {
           <button className='btn primary' type='submit'><span>Guardar</span></button>
         </Form>
       </Formik>
-      {successful && <SuccessfulDiv removeSuccessModal={() => setSuccessful(false)} />}
+      {successful && <SuccessfulDiv removeSuccessModal={() => setSuccessful(false)} closeMainModal={() => onClose()} />}
     </>
   )
 }
