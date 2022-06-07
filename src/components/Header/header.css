@@ -103,8 +103,8 @@
 }
 
 .user-info {
+  margin: 0;
   position: relative;
-  margin-bottom: 20px;
   width: 100%;
   padding: 5px;
   cursor: pointer;
