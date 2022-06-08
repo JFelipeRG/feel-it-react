@@ -18,7 +18,6 @@ export default function useUser () {
         console.log(err)
         window.localStorage.removeItem('user')
         setError(true)
-        console.log(err.message)
       })
   }, [setUser])
 
@@ -88,12 +87,10 @@ export default function useUser () {
   const newPassw = useCallback(({ passw, actualPassw, setSuccessful, formRef }) => {
     const id = user.id
 
-    console.log({ passw, actualPassw })
     changePassword({ id, actualPassw, passw })
       .then(() => {
         updatedUser({ id })
           .then(updatedUser => {
-            console.log(updatedUser)
             window.localStorage.setItem('user', JSON.stringify(updatedUser))
             setUser(updatedUser)
             setError(false)

@@ -10,7 +10,7 @@ function getDiffTime (fecha) {
 
   else if (diff.as('days').toFixed() >= 7) return data.date() + ' ' + getMonthString(data.month()) + '.'
 
-  else if (diff.as('days').toFixed() > 0) return 'hace ' + data.day() + 'd'
+  else if (diff.as('days').toFixed() > 0) return 'hace ' + diff.as('days').toFixed() + 'd'
 
   else if (diff.as('hours').toFixed() > 0) return 'hace ' + diff.as('hours').toFixed() + 'h'
 
