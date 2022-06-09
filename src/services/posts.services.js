@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseURL = 'http://localhost:3002/api/posts'
+const baseURL = 'https://peaceful-brook-00691.herokuapp.com/posts'
 
 const create = async params => {
   const { data } = await axios.post(`${baseURL}/create`, params)

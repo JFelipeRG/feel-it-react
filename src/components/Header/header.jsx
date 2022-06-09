@@ -76,7 +76,7 @@ export default function Header () {
   const [showModalPost, setShowModalPost] = useState(false)
   const [showModalChangePassw, setShowModalChangePassw] = useState(false)
   const { user } = useUser()
-  const urlImg = `http://localhost:3002/api/user/img/${user.profile_img}`
+  const urlImg = `https://peaceful-brook-00691.herokuapp.com/user/img/${user.profile_img}`
 
   const handleClickMenu = () => {
     setShowModalMenu(true)

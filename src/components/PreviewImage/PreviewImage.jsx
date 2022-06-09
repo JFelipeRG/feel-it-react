@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import imgDefault from '@assets/img/default-user.png'
 
 export default function PreviewImage ({ file }) {
   const [preview, setPreview] = useState(null)
@@ -17,7 +18,7 @@ export default function PreviewImage ({ file }) {
 
   return (
     <div>
-      <img className='preview' src={file ? preview : '/src/assets/img/default-user.png'} alt='preview' width='100px' height='100px' />
+      <img className='preview' src={file ? preview : imgDefault} alt='preview' width='100px' height='100px' />
     </div>
   )
 }

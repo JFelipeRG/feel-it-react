@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseURL = 'http://localhost:3002/api/canciones'
+const baseURL = 'https://peaceful-brook-00691.herokuapp.com/canciones'
 
 const searchSong = async params => {
   const { data } = await axios.post(`${baseURL}/search`, params)

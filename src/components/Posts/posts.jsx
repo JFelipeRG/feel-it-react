@@ -48,7 +48,7 @@ export default function Post (props) {
   const [showModal, setShowModal] = useState(false)
 
   const { user } = useUser()
-  const urlImg = `http://localhost:3002/api/user/img/${props.usuario.profile_img}`
+  const urlImg = `https://peaceful-brook-00691.herokuapp.com/user/img/${props.usuario.profile_img}`
 
   const diffTime = getDiffTime(props.fecha_post)
 

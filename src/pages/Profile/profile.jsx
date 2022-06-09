@@ -32,7 +32,7 @@ export default function Profile () {
 
   if (user) {
     const fecha = new Date(user.fecha_creacion)
-    const urlImg = `http://localhost:3002/api/user/img/${user.profile_img}`
+    const urlImg = `https://peaceful-brook-00691.herokuapp.com/user/img/${user.profile_img}`
     return (
       <div className='body-profile'>
         <div className='profile-user'>

@@ -5,7 +5,7 @@ import { useMemo, useState, useRef } from 'react'
 import { searchSong } from '@services/song.services'
 
 const SongInfo = ({ caratula, nombre, artista }) => {
-  const url = `http://localhost:3002/api/cancion/img/${caratula}`
+  const url = `https://peaceful-brook-00691.herokuapp.com/cancion/img/${caratula}`
 
   return (
     <>

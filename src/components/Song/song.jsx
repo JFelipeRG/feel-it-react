@@ -1,7 +1,7 @@
 import './song.css'
 
 export default function Song (props) {
-  const url = `http://localhost:3002/api/cancion/img/${props.caratula}`
+  const url = `https://peaceful-brook-00691.herokuapp.com/cancion/img/${props.caratula}`
 
   return (
     <div className='song-info'>
