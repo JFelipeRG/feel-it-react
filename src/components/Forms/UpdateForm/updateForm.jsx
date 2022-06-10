@@ -27,7 +27,7 @@ const validateForm = values => {
 export default function UpdateForm ({ onClose }) {
   const { user, updateUser, error, deleteImg } = useUser()
   const [image, setImage] = useState(async () => {
-    const res = await fetch(`http://localhost:3002/api/user/img/${user.profile_img}`)
+    const res = await fetch(`https://peaceful-brook-00691.herokuapp.com/user/img/${user.profile_img}`)
     const datos = await res.blob()
     setImage(datos)
   })
