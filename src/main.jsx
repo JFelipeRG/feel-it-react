@@ -4,7 +4,7 @@ import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom/client'
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { UserContextProvider } from './context/UserContext'
+import { UserContextProvider } from '@context/UserContext'
 
 import App from './App'
 

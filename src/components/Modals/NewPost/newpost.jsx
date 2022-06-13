@@ -10,7 +10,7 @@ import Search from '@components/Search/search'
 import useUser from '@hooks/useUser'
 import usePosts from '@hooks/usePosts'
 
-function ModalPost ({ onClose }) {
+function ModalPost ({ onClose, updatePage }) {
   const modalRef = useRef()
   const textRef = useRef()
 
@@ -45,9 +45,11 @@ function ModalPost ({ onClose }) {
       user: user.id,
       text: textPost,
       song: songSelected.song.id,
-      closeModal: onClose
+      closeModal: onClose,
+      updatePage
     })
 
+    updatePage(false)
     setError(false)
   }
 
@@ -88,9 +90,9 @@ function ModalPost ({ onClose }) {
   )
 }
 
-export default function NewPostPortal ({ onClose }) {
+export default function NewPostPortal ({ onClose, updatePage }) {
   return ReactDOM.createPortal(
-    <ModalPost onClose={onClose} />,
+    <ModalPost onClose={onClose} updatePage={updatePage} />,
     document.getElementById('modals')
   )
 }

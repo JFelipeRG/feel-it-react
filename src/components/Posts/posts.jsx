@@ -95,7 +95,7 @@ export default function Post (props) {
       {
         showModal && (
           <React.Suspense fallback={null}>
-            <RemoveModal onClose={handleCloseModal} idPost={props.id} idSong={props.cancion.id} />
+            <RemoveModal onClose={handleCloseModal} idPost={props.id} idSong={props.cancion.id} updatePosts={props.updatePosts} />
           </React.Suspense>
         )
       }

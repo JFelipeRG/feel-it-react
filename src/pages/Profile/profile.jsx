@@ -1,8 +1,10 @@
 import './profile.css'
 
+import { useOutletContext, useLocation } from 'react-router-dom'
+
 import useProfile from '@hooks/useProfile'
 import Post from '@components/Posts/posts'
-import { useLocation } from 'react-router-dom'
+
 import useUser from '@hooks/useUser'
 import React, { useEffect, useState } from 'react'
 import EditPencilIcon from '@components/Icons/editPencilIcon'
@@ -13,6 +15,7 @@ export default function Profile () {
   const name = (useLocation().pathname).split('/')[2]
   const { user: actualUser } = useUser()
   const { user, isLoading, updateUser } = useProfile({ nick: name })
+  const [update, setUpdate] = useOutletContext()
 
   useEffect(() => {
     if (actualUser && user && actualUser.nick !== user.nick) {
@@ -20,7 +23,8 @@ export default function Profile () {
     } else {
       updateUser({ nick: name })
     }
-  }, [name, actualUser])
+    setUpdate(false)
+  }, [name, actualUser, update])
 
   const [showModal, setShowModal] = useState(false)
 
@@ -48,7 +52,7 @@ export default function Profile () {
         </div>
         <div className='profile-posts'>
           {user.posts.map((post) => {
-            return <Post key={post.id} {...post} />
+            return <Post key={post.id} {...post} updatePosts={setUpdate} />
           })}
         </div>
         {

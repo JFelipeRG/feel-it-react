@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 import '../index.css'
 import usePosts from '@hooks/usePosts'
 
-function RemovePost ({ onClose, idPost, idSong }) {
+function RemovePost ({ onClose, idPost, idSong, updatePosts }) {
   const { removePost } = usePosts()
 
   const handleClick = () => {
-    removePost({ id: idPost, song: idSong })
+    removePost({ id: idPost, song: idSong, updatePosts })
     onClose()
   }
 
@@ -26,9 +26,9 @@ function RemovePost ({ onClose, idPost, idSong }) {
   )
 }
 
-export default function RemovePortal ({ onClose, idPost, idSong }) {
+export default function RemovePortal ({ onClose, idPost, idSong, updatePosts }) {
   return ReactDOM.createPortal(
-    <RemovePost onClose={onClose} idPost={idPost} idSong={idSong} />,
+    <RemovePost onClose={onClose} idPost={idPost} idSong={idSong} updatePosts={updatePosts} />,
     document.getElementById('modals')
   )
 }

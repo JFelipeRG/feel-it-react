@@ -4,13 +4,14 @@ import './App.css'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 import useUser from '@hooks/useUser'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Header = React.lazy(() => import('@components/Header/header'))
 const Hotest = React.lazy(() => import('@components/Explore/PopularSongs/popularSongs'))
 const RecentSongs = React.lazy(() => import('@components/Explore/RecentSongs/recentSongs'))
 
 function App () {
+  const [update, setUpdate] = useState(false)
   const navigate = useNavigate()
   const { isLogged } = useUser()
 
@@ -25,11 +26,11 @@ function App () {
           <div className='cover-window' />
           <div className='main-content'>
             <div className='app-header'>
-              <React.Suspense fallback={null}><Header /></React.Suspense>
+              <React.Suspense fallback={null}><Header updateCurrentPage={setUpdate} /></React.Suspense>
             </div>
             <div className='app-body'>
               <div className='body-main-content'>
-                <Outlet />
+                <Outlet context={[update, setUpdate]} />
               </div>
               <div className='explore-aside'>
                 <React.Suspense fallback={null}>

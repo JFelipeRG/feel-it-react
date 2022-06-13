@@ -70,7 +70,7 @@ const ToggleMenu = ({ onClose, onClickLog, onClickPassw }) => {
   )
 }
 
-export default function Header () {
+export default function Header ({ updateCurrentPage }) {
   const [showModalLogOut, setShowModalLogOut] = useState(false)
   const [showModalMenu, setShowModalMenu] = useState(false)
   const [showModalPost, setShowModalPost] = useState(false)
@@ -156,7 +156,7 @@ export default function Header () {
       {
         showModalPost && (
           <React.Suspense fallback={null}>
-            <ModalPost onClose={handleClosePost} />
+            <ModalPost onClose={handleClosePost} updatePage={updateCurrentPage} />
           </React.Suspense>)
       }
       {
