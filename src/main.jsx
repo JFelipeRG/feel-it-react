@@ -22,12 +22,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <UserContextProvider>
       <Router>
         <Routes>
-          <Route path='welcome' element={<Suspense fallback={null}><Welcome /></Suspense>} />
-          <Route path='i' element={<Suspense fallback={null}><Logs /></Suspense>}>
+          <Route path='/welcome' element={<Suspense fallback={null}><Welcome /></Suspense>} />
+          <Route path='/i' element={<Suspense fallback={null}><Logs /></Suspense>}>
             <Route path='logIn' element={<Suspense fallback={null}><LogIn /></Suspense>} />
             <Route path='singUp' element={<Suspense fallback={null}><SingUp /></Suspense>} />
           </Route>
-          <Route path='singUp' element={<Suspense fallback={null}><SingUp /></Suspense>} />
           <Route path='/' element={<App />}>
             <Route path='home' element={<Suspense fallback={null}><Home /></Suspense>} />
             <Route path='profile/:name' element={<Suspense fallback={null}><Profile /></Suspense>} />

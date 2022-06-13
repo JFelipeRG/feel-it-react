@@ -63,30 +63,30 @@ export default function Search ({ songSelect }) {
       <div className='search-container'>
         <input className='search-song' type='text' {...inputProps} />
         {
-                autoCompleteState.isOpen && (
-                  <div className='autocomplete' ref={panelRef} {...autocomplete.getPanelProps()}>
-                    {autoCompleteState.collections.map((collection, index) => {
-                      const { items } = collection
+          autoCompleteState.isOpen && (
+            <div className='autocomplete' ref={panelRef} {...autocomplete.getPanelProps()}>
+              {autoCompleteState.collections.map((collection, index) => {
+                const { items } = collection
 
-                      return (
-                        <section key={`section-${index}`}>
-                          {items.length > 0 && (
-                            <ul {...autocomplete.getListProps()}>
-                              {
-                                  items.map(item => (
-                                    <li key={item.id} className='song-info-search' onClick={() => selectSong({ ...item })}>
-                                      <SongInfo {...item} />
-                                    </li>
-                                  ))
-                              }
-                            </ul>
-                          )}
-                        </section>
-                      )
-                    })}
-                  </div>
+                return (
+                  <section key={`section-${index}`}>
+                    {items.length > 0 && (
+                      <ul {...autocomplete.getListProps()}>
+                        {
+                            items.map(item => (
+                              <li key={item.id} className='song-info-search' onClick={() => selectSong({ ...item })}>
+                                <SongInfo {...item} />
+                              </li>
+                            ))
+                        }
+                      </ul>
+                    )}
+                  </section>
                 )
-            }
+              })}
+            </div>
+          )
+        }
       </div>
     </form>
   )
